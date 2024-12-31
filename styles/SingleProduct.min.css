@@ -1,0 +1,219 @@
+.frame-tshirt {
+	position: relative;
+	max-width: 295px;
+	max-height: 298px;
+	width: auto;
+	height: auto;
+	background: #f0eeed;
+	z-index: 8;
+	overflow: hidden;
+	border-radius: 20px;
+}
+
+
+.d {
+	position: relative;
+	color: #000000;
+	font-family: Satoshi, var(--default-font-family);
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 27px;
+	text-align: left;
+}
+.details {
+	position: relative;
+	color: #000000;
+	font-family: Satoshi, var(--default-font-family);
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 27px;
+	text-align: left;
+	text-transform: lowercase;
+}
+.d-1 {
+	position: relative;
+	color: #000000;
+	font-family: Satoshi, var(--default-font-family);
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 27px;
+	text-align: left;
+}
+.details-2 {
+	position: relative;
+	color: #000000;
+	font-family: Satoshi, var(--default-font-family);
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 27px;
+	text-align: left;
+	text-transform: lowercase;
+}
+.d-3 {
+	position: relative;
+	color: #000000;
+	font-family: Satoshi, var(--default-font-family);
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 27px;
+	text-align: left;
+}
+.details-4 {
+	position: relative;
+	color: #000000;
+	font-family: Satoshi, var(--default-font-family);
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 27px;
+	text-align: left;
+	text-transform: lowercase;
+}
+.d-5 {
+	position: relative;
+	color: #000000;
+	font-family: Satoshi, var(--default-font-family);
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 27px;
+	text-align: left;
+}
+.details-6 {
+	position: relative;
+	color: #000000;
+	font-family: Satoshi, var(--default-font-family);
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 27px;
+	text-align: left;
+	text-transform: lowercase;
+}
+.frame-7 {
+	display: flex;
+	align-items: center;
+	flex-wrap: nowrap;
+	gap: 13px;
+	position: relative;
+	width: 150px;
+	margin: 8px 0 0 0;
+}
+.frame-8 {
+	display: flex;
+	align-items: flex-start;
+	flex-wrap: nowrap;
+	flex-shrink: 0;
+	gap: 5.312px;
+	position: relative;
+	width: 104px;
+	z-index: 1;
+}
+.star {
+	flex-shrink: 0;
+	position: relative;
+	color: #FFC633;
+	width: 19px;
+	height: 19px;
+	background-size: cover;
+	z-index: 2;
+}
+
+.root {
+	flex-shrink: 0;
+	position: relative;
+	width: 33px;
+	font-family: Satoshi, var(--default-font-family);
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 18.9px;
+	text-align: left;
+	text-overflow: initial;
+	white-space: nowrap;
+	z-index: 7;
+}
+.text-9 {
+	position: relative;
+	color: #000000;
+	font-family: Satoshi, var(--default-font-family);
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 18.9px;
+	text-align: left;
+}
+.text-a {
+	position: relative;
+	color: rgba(0, 0, 0, 0.6);
+	font-family: Satoshi, var(--default-font-family);
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 18.9px;
+	text-align: left;
+}
+.wrapper-2 {
+	display: flex;
+	align-items: center;
+	flex-wrap: nowrap;
+	gap: 10px;
+	position: relative;
+	width: 55px;
+	margin: 8px 0 0 0;
+	z-index: 11;
+}
+.text-b {
+	flex-shrink: 0;
+	flex-basis: auto;
+	position: relative;
+	height: 32px;
+	color: #000000;
+	font-family: Satoshi, var(--default-font-family);
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 32px;
+	text-align: left;
+	white-space: nowrap;
+	z-index: 12;
+}
+
+
+.frame-a {
+	display: flex;
+	align-items: center;
+	flex-wrap: nowrap;
+	gap: 10px;
+	position: relative;
+	width: 200px;
+	margin-top: -10px;
+	z-index: 10;
+  }
+  
+  .frame-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: nowrap;
+	flex-shrink: 0;
+	gap: 12px;
+	position: relative;
+	width: 58px;
+	padding: 6px 14px 6px 14px;
+	cursor: pointer;
+	background: rgba(255, 51, 51, 0.1);
+	border: none;
+	z-index: 13;
+	overflow: hidden;
+	border-radius: 62px;
+  }
+  .discount {
+	flex-shrink: 0;
+	flex-basis: auto;
+	position: relative;
+	height: 16px;
+	color: #ff3333;
+	font-family: Satoshi, var(--default-font-family);
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 16px;
+	text-align: left;
+	white-space: nowrap;
+	z-index: 14;
+  }
+
+  

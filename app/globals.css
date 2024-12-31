@@ -3,19 +3,138 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+	--font-integral-cf: "Integral CF", sans-serif;
+	--font-satoshi: "Satoshi", sans-serif;
+	--font-lexend: "Lexend", sans-serif;
+	--font-default: var(--font-satoshi);
+	--font-poppins: "Poppins", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.bg-gradient {
+	background: linear-gradient(140deg, #38aecc, #193447);
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+html {
+	font-family: var(--font-default), sans-serif;
+}
+.light-text {
+  font-weight: 300; /* Satoshi-Light */
+}
+
+.regular-text {
+  font-weight: 400; /* Satoshi-Regular */
+}
+
+.bold-text {
+  font-weight: 700; /* Satoshi-Bold */
+}
+
+.frame-36 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: nowrap;
+	gap: 12px;
+	position: relative;
+	width: 218px;
+	height: 52px;
+	margin: 50px auto;
+	padding: 16px 54px 16px 54px;
+	cursor: pointer;
+	background: transparent;
+	border: 1px solid rgba(0, 144, 194, 0.7);
+	z-index: 63;
+	overflow: hidden;
+	border-radius: 62px;
+}
+.view-all {
+	flex-shrink: 0;
+	flex-basis: auto;
+	position: relative;
+	height: 22px;
+	color: #012f3f;
+	font-family: Satoshi, var(--default-font-family);
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 21.6px;
+	text-align: left;
+	white-space: nowrap;
+	z-index: 64;
+}
+
+.heading2 {
+	color: #012f3f;
+	font-family: Lufga, var(--default-font-family);
+	font-size: 48px;
+	font-weight: 900;
+	line-height: 62.648px;
+	text-align: center;
+	white-space: nowrap;
+	z-index: 1;
+	margin-bottom: 50px;
+}
+.pageTitle {
+	text-align: left;
+	margin-bottom: 30px;
+	font-size: 48px;
+	font-weight: 600;
+}
+
+.pageName {
+	text-align: left;
+	margin-bottom: 30px;
+	font-size: 28px;
+}
+
+.dollar-sign {
+	flex-shrink: 0;
+	flex-basis: auto;
+	position: relative;
+	height: 32px;
+	color: #000000;
+	font-family: Satoshi, var(--default-font-family);
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 32px;
+	text-align: left;
+	white-space: nowrap;
+	z-index: 11;
+}
+.dollar-sign-b {
+	flex-shrink: 0;
+	flex-basis: auto;
+	position: relative;
+	height: 32px;
+	color: rgba(0, 0, 0, 0.4);
+	font-family: Satoshi, var(--default-font-family);
+	font-size: 24px;
+	font-weight: 700;
+	text-decoration: line-through;
+
+	line-height: 32px;
+	text-align: left;
+	white-space: nowrap;
+	z-index: 12;
+}
+
+.t-shirt-with-tape,
+.product-name {
+	position: relative;
+	max-width: 225px;
+	height: 27px;
+	margin: 16px 0 0 0;
+	font-family: Satoshi, var(--default-font-family);
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 27px;
+	text-align: left;
+	text-overflow: initial;
+	white-space: nowrap;
+	z-index: 10;
+}
+.slick-track {
+	gap: 20px; /* Adjust the gap as needed */
+}
+.slick-slide {
+	padding: 8px; /* Adjust the padding as needed */
 }

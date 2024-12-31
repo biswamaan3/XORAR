@@ -1,0 +1,261 @@
+:root {
+    --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+      "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+      "Source Han Sans CN", sans-serif;
+  }
+  
+  .footer-main-container {
+    overflow: hidden;
+  }
+  
+  .footer-main-container,
+  .footer-main-container * {
+    box-sizing: border-box;
+  }
+  
+  input,
+  select,
+  textarea,
+  button {
+    outline: 0;
+  }
+  
+  .footer-main-container {
+    position: relative;
+    width: 1441px;
+    height: 589px;
+    margin: 0 auto;
+  }
+  
+  .footer-frame {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    position: absolute;
+    width: 1240px;
+    height: 180px;
+    top: 0;
+    left: 101px;
+    padding: 36px 64px 36px 64px;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 4;
+    overflow: hidden;
+    border-radius: 20px;
+  }
+  
+  .footer-stay-up-to-date {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    position: relative;
+    width: 551px;
+    height: 94px;
+    color: #ffffff;
+    font-family: Integral CF, var(--default-font-family);
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 45px;
+    text-align: left;
+    z-index: 5;
+  }
+  
+  .footer-frame-1 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    position: relative;
+    width: 552px;
+    height: 108px;
+    z-index: 6;
+  }
+  
+  .footer-frame-2 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    position: relative;
+    width: 240px;
+    height: 108px;
+    padding: 32px 14px 32px 14px;
+    z-index: 7;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    border: none;
+  }
+  
+  .footer-frame-3 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    z-index: 8;
+    background: #ffffff;
+    border-radius: 50%;
+  }
+  
+  .footer-enter-email-address {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    position: relative;
+    width: 160px;
+    height: 40px;
+    margin-left: 14px;
+    color: #ffffff;
+    font-family: Integral CF, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: left;
+  }
+  
+  .footer-frame-4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    width: 240px;
+    height: 108px;
+    margin-left: 72px;
+    padding: 0;
+    z-index: 9;
+    background: #ffffff;
+    border-radius: 15px;
+    border: none;
+  }
+  
+  .footer-subscribe-newsletter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    width: 200px;
+    height: 40px;
+    color: #000000;
+    font-family: Integral CF, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: center;
+  }
+  
+  .footer-rectangle {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    position: absolute;
+    width: 1440px;
+    height: 408px;
+    top: 181px;
+    left: 0;
+    z-index: 10;
+    background: #000000;
+  }
+  
+  .footer-frame-5 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    position: relative;
+    width: 1240px;
+    height: 310px;
+    margin: 48px auto 0 auto;
+    z-index: 11;
+  }
+  
+  .footer-frame-6 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    position: relative;
+    width: 552px;
+    height: 310px;
+    z-index: 12;
+  }
+  
+  .footer-frame-7 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    position: relative;
+    width: 393px;
+    height: 248px;
+    z-index: 13;
+  }
+  
+  .footer-frame-8 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    position: relative;
+    width: 268px;
+    height: 75px;
+    z-index: 14;
+  }
+  
+  .footer-xorar-logo {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    position: relative;
+    width: 75px;
+    height: 75px;
+    z-index: 15;
+    background: #ffffff;
+    border-radius: 20px;
+  }
+  
+  .footer-xorar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    position: relative;
+    width: 171px;
+    height: 48px;
+    margin-left: 22px;
+    color: #ffffff;
+    font-family: Integral CF, var(--default-font-family);
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 45px;
+    text-align: left;
+    z-index: 16;
+  }
+  
+  .footer-style-suits-proud {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    position: relative;
+    width: 393px;
+    height: 123px;
+    margin-top: 50px;
+    color: #ffffff;
+    font-family: Integral CF, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: left;
+  }
+  
+  /* Add similar styles for remaining classes */
+  

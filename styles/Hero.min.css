@@ -1,0 +1,245 @@
+.flex-row-ff {
+	position: relative;
+	display: flex;
+	padding: 20px;
+	width: 100%;
+	height: 622px;
+	z-index: 279;
+	margin-bottom: 100px;
+	background: linear-gradient(135deg, #38aecc, #193447);
+}
+.photoshoot-model {
+	position: absolute;
+	width: 782px;
+	height: 622px;
+	top: 0;
+	right: 0;
+	background: url(/assets/img/hero_model.png) no-repeat center;
+	background-size: cover;
+	z-index: 1;
+	overflow: hidden;
+}
+.vector {
+	position: relative;
+	width: 104px;
+	height: 104px;
+	margin: 45px 0 0 597px;
+	background: url(/assets/img/vector1.png) no-repeat center;
+	background-size: 100% 100%;
+	z-index: 2;
+}
+.vector-8 {
+	position: relative;
+	width: 56px;
+	height: 56px;
+	margin: 107px 0 0 92px;
+	background: url(/assets/img/vector2.png) no-repeat center;
+	background-size: 100% 100%;
+	z-index: 3;
+}
+.unstoppable {
+	margin-left: 10px;
+	color: #ffffff;
+	font-family: Silent Forest, var(--font-silent-forest);
+	font-size: 64px;
+	font-weight: 400;
+	text-align: left;
+	white-space: nowrap;
+	z-index: 279;
+}
+.be-with-every-look {
+	line-height: 71px;
+	color: #012f3f;
+	font-family: Lufga, var(--font-lufga);
+	font-size: 64px;
+	font-weight: 600;
+	line-height: 85px;
+	text-align: left;
+	text-overflow: initial;
+	z-index: 278;
+	overflow: hidden;
+}
+.hoodies-tshirts-description {
+	color: #ffffff;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 28px;
+	text-align: left;
+	z-index: 4;
+}
+.frame-9 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: nowrap;
+	gap: 12px;
+	position: relative;
+	width: 210px;
+	height: 52px;
+	left: 0;
+	padding: 16px 54px 16px 54px;
+	background: #012f3f;
+	z-index: 5;
+	overflow: hidden;
+	border-radius: 62px;
+}
+.shop-now {
+	flex-shrink: 0;
+	flex-basis: auto;
+	position: relative;
+	height: 22px;
+	color: #ffffff;
+	font-family: Satoshi, var(--default-font-family);
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 21.6px;
+	text-align: left;
+	white-space: nowrap;
+	z-index: 6;
+}
+.frame-a {
+	display: flex;
+	align-items: center;
+	flex-wrap: nowrap;
+	gap: 32px;
+	position: relative;
+	width: 570px;
+	height: 74px;
+	left: 0;
+	z-index: 7;
+}
+.frame-b {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	flex-wrap: nowrap;
+	flex-shrink: 0;
+	gap: -2px;
+	position: relative;
+	width: 115px;
+	z-index: 8;
+}
+.plus-200 {
+	flex-shrink: 0;
+	flex-basis: auto;
+	position: relative;
+	height: 54px;
+	color: #ffffff;
+	font-family: Satoshi, var(--default-font-family);
+	font-size: 40px;
+	font-weight: 700;
+	line-height: 54px;
+	text-align: left;
+	white-space: nowrap;
+	z-index: 9;
+}
+.regional-brands {
+	flex-shrink: 0;
+	flex-basis: auto;
+	position: relative;
+	height: 22px;
+	color: #193447;
+	font-family: Satoshi, var(--default-font-family);
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 22px;
+	text-align: left;
+	white-space: nowrap;
+	z-index: 10;
+}
+.line {
+	align-self: stretch;
+	flex-shrink: 0;
+	position: relative;
+	width: 1px;
+	background: url(/assets/svg/Line.svg) no-repeat center;
+	background-size: cover;
+	z-index: 11;
+}
+.frame-c {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	flex-wrap: nowrap;
+	flex-shrink: 0;
+	gap: -2px;
+	position: relative;
+	width: 156px;
+	z-index: 12;
+}
+.plus-2000 {
+	flex-shrink: 0;
+	flex-basis: auto;
+	position: relative;
+	height: 54px;
+	color: #ffffff;
+	font-family: Satoshi, var(--default-font-family);
+	font-size: 40px;
+	font-weight: 700;
+	line-height: 54px;
+	text-align: left;
+	white-space: nowrap;
+	z-index: 13;
+}
+.high-quality-products {
+	flex-shrink: 0;
+	flex-basis: auto;
+	position: relative;
+	height: 22px;
+	color: #193447;
+	font-family: Satoshi, var(--default-font-family);
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 22px;
+	text-align: left;
+	white-space: nowrap;
+	z-index: 14;
+}
+.line-d {
+	align-self: stretch;
+	flex-shrink: 0;
+	position: relative;
+	width: 1px;
+	background: url(/assets/svg/Line.svg) no-repeat center;
+	background-size: cover;
+	z-index: 15;
+}
+.frame-e {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	flex-wrap: nowrap;
+	flex-shrink: 0;
+	gap: -2px;
+	position: relative;
+	width: 171px;
+	z-index: 16;
+}
+.plus-30000 {
+	flex-shrink: 0;
+	flex-basis: auto;
+	position: relative;
+	height: 54px;
+	color: #ffffff;
+	font-family: Satoshi, var(--default-font-family);
+	font-size: 40px;
+	font-weight: 700;
+	line-height: 54px;
+	text-align: left;
+	white-space: nowrap;
+	z-index: 17;
+}
+.happy-customers {
+	flex-shrink: 0;
+	flex-basis: auto;
+	position: relative;
+	height: 22px;
+	color: #193447;
+	font-family: Satoshi, var(--default-font-family);
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 22px;
+	text-align: left;
+	white-space: nowrap;
+	z-index: 18;
+}

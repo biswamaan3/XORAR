@@ -1,0 +1,33 @@
+.main-section {
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  background: linear-gradient(140deg, #38aecc, #193447); /* Gradient applied */
+  border-radius: 40px;
+}
+  .style-browser {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-size: 0px;
+    background: rgba(239, 239, 239, 0.2);
+    overflow: hidden;
+    border-radius: 40px;
+  }
+  .title-bento{
+    color: black;
+    font-family: var(--title-font);
+    font-size: 28px;
+    margin: 20px 25px;
+    font-weight: 700;
+  }
+
+  .title-browse {
+    text-align: center;
+    margin: 50px auto;
+    color: #ffffff;
+    font-family: var(--title-font);
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
+  }
