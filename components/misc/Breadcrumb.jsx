@@ -10,7 +10,7 @@ export default function Breadcrumb() {
 	const segments = pathname?.split("/").filter((segment) => segment);
 
 	return (
-		<div className='flex gap-[12px] items-center flex-nowrap relative mx-auto my-0'>
+		<div className='flex gap-[12px] items-center flex-nowrap relative mx-auto mt-5'>
 			<span className="h-[22px] shrink-0 basis-auto  text-[16px] font-satoshi leading-[21.6px] text-[#000] relative text-left whitespace-nowrap z-[6]">
 				<Link href='/' className='text-[#000]'>
 					Home
