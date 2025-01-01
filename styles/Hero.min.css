@@ -7,8 +7,9 @@
 	z-index: 279;
 	margin-bottom: 100px;
 	background: linear-gradient(135deg, #38aecc, #193447);
-}
-.photoshoot-model {
+  }
+  
+  .photoshoot-model {
 	position: absolute;
 	width: 782px;
 	height: 622px;
@@ -18,8 +19,9 @@
 	background-size: cover;
 	z-index: 1;
 	overflow: hidden;
-}
-.vector {
+  }
+  
+  .vector {
 	position: relative;
 	width: 104px;
 	height: 104px;
@@ -27,8 +29,9 @@
 	background: url(/assets/img/vector1.png) no-repeat center;
 	background-size: 100% 100%;
 	z-index: 2;
-}
-.vector-8 {
+  }
+  
+  .vector-8 {
 	position: relative;
 	width: 56px;
 	height: 56px;
@@ -36,8 +39,9 @@
 	background: url(/assets/img/vector2.png) no-repeat center;
 	background-size: 100% 100%;
 	z-index: 3;
-}
-.unstoppable {
+  }
+  
+  .unstoppable {
 	margin-left: 10px;
 	color: #ffffff;
 	font-family: Silent Forest, var(--font-silent-forest);
@@ -46,8 +50,9 @@
 	text-align: left;
 	white-space: nowrap;
 	z-index: 279;
-}
-.be-with-every-look {
+  }
+  
+  .be-with-every-look {
 	line-height: 71px;
 	color: #012f3f;
 	font-family: Lufga, var(--font-lufga);
@@ -58,16 +63,18 @@
 	text-overflow: initial;
 	z-index: 278;
 	overflow: hidden;
-}
-.hoodies-tshirts-description {
+  }
+  
+  .hoodies-tshirts-description {
 	color: #ffffff;
 	font-size: 20px;
 	font-weight: 400;
 	line-height: 28px;
 	text-align: left;
 	z-index: 4;
-}
-.frame-9 {
+  }
+  
+  .frame-9 {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -82,8 +89,9 @@
 	z-index: 5;
 	overflow: hidden;
 	border-radius: 62px;
-}
-.shop-now {
+  }
+  
+  .shop-now {
 	flex-shrink: 0;
 	flex-basis: auto;
 	position: relative;
@@ -96,8 +104,9 @@
 	text-align: left;
 	white-space: nowrap;
 	z-index: 6;
-}
-.frame-a {
+  }
+  
+  .frame-a {
 	display: flex;
 	align-items: center;
 	flex-wrap: nowrap;
@@ -107,8 +116,9 @@
 	height: 74px;
 	left: 0;
 	z-index: 7;
-}
-.frame-b {
+  }
+  
+  .frame-b {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
@@ -118,8 +128,9 @@
 	position: relative;
 	width: 115px;
 	z-index: 8;
-}
-.plus-200 {
+  }
+  
+  .plus-200 {
 	flex-shrink: 0;
 	flex-basis: auto;
 	position: relative;
@@ -132,8 +143,9 @@
 	text-align: left;
 	white-space: nowrap;
 	z-index: 9;
-}
-.regional-brands {
+  }
+  
+  .regional-brands {
 	flex-shrink: 0;
 	flex-basis: auto;
 	position: relative;
@@ -146,8 +158,9 @@
 	text-align: left;
 	white-space: nowrap;
 	z-index: 10;
-}
-.line {
+  }
+  
+  .line {
 	align-self: stretch;
 	flex-shrink: 0;
 	position: relative;
@@ -155,8 +168,9 @@
 	background: url(/assets/svg/Line.svg) no-repeat center;
 	background-size: cover;
 	z-index: 11;
-}
-.frame-c {
+  }
+  
+  .frame-c {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
@@ -166,8 +180,9 @@
 	position: relative;
 	width: 156px;
 	z-index: 12;
-}
-.plus-2000 {
+  }
+  
+  .plus-2000 {
 	flex-shrink: 0;
 	flex-basis: auto;
 	position: relative;
@@ -180,8 +195,9 @@
 	text-align: left;
 	white-space: nowrap;
 	z-index: 13;
-}
-.high-quality-products {
+  }
+  
+  .high-quality-products {
 	flex-shrink: 0;
 	flex-basis: auto;
 	position: relative;
@@ -194,8 +210,9 @@
 	text-align: left;
 	white-space: nowrap;
 	z-index: 14;
-}
-.line-d {
+  }
+  
+  .line-d {
 	align-self: stretch;
 	flex-shrink: 0;
 	position: relative;
@@ -203,8 +220,9 @@
 	background: url(/assets/svg/Line.svg) no-repeat center;
 	background-size: cover;
 	z-index: 15;
-}
-.frame-e {
+  }
+  
+  .frame-e {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
@@ -214,8 +232,9 @@
 	position: relative;
 	width: 171px;
 	z-index: 16;
-}
-.plus-30000 {
+  }
+  
+  .plus-30000 {
 	flex-shrink: 0;
 	flex-basis: auto;
 	position: relative;
@@ -228,8 +247,9 @@
 	text-align: left;
 	white-space: nowrap;
 	z-index: 17;
-}
-.happy-customers {
+  }
+  
+  .happy-customers {
 	flex-shrink: 0;
 	flex-basis: auto;
 	position: relative;
@@ -242,4 +262,153 @@
 	text-align: left;
 	white-space: nowrap;
 	z-index: 18;
-}
+  }
+  
+  /* Mobile devices */
+  @media (max-width: 639px) {
+	.flex-row-ff {
+	  flex-direction: column;
+	  overflow: hidden;
+	  height: auto;
+	}
+  
+	.photoshoot-model {
+	  position: absolute;
+	  width: 100%;
+	  height: auto;
+	  background-blend-mode: darken;
+	  margin: 0;
+	  bottom: 0;
+	  z-index: 10;
+	}
+  
+	.text-hero {
+	  padding: 20px;
+	  background-color: rgba(181, 181, 206, 0.5);
+	  z-index: 15;
+	}
+  
+	.unstoppable {
+	  font-size: 38px;
+	}
+  
+	.be-with-every-look {
+	  color: black;
+	  font-size: 40px;
+	  line-height: 48px;
+	}
+  
+	.unstoppable {
+	  margin: 0 5px;
+	}
+  
+	.hoodies-tshirts-description {
+	  font-size: 17px;
+	}
+  
+	.frame-a {
+	  display: none !important;
+	}
+  
+	.frame-9,
+	.shop-now {
+	  width: 100%;
+	}
+  
+	.shop-now {
+	  text-align: center;
+	}
+  }
+  
+  /* Tablet devices */
+  @media (min-width: 640px) and (max-width: 767px) {
+	.flex-row-ff {
+	  flex-direction: column;
+	  height: auto;
+	}
+  
+	.photoshoot-model {
+	  position: absolute;
+	  width: 100%;
+	  height: auto;
+	  background-blend-mode: darken;
+	  margin: 0;
+	  bottom: 0;
+	}
+  
+	.unstoppable {
+	  font-size: 48px;
+	}
+  
+	.be-with-every-look {
+	  font-size: 48px;
+	  line-height: 60px;
+	}
+  
+	.frame-9 {
+	  width: 100%;
+	}
+  
+	.shop-now {
+	  text-align: center;
+	}
+  }
+  
+  /* Small laptop and large tablet devices */
+  @media (min-width: 768px) and (max-width: 1023px) {
+	.flex-row-ff {
+	  flex-direction: row;
+	  height: 622px;
+	}
+  
+	.photoshoot-model {
+	  position: absolute;
+	  width: 100%;
+	  height: auto;
+	}
+  
+	.unstoppable {
+	  font-size: 56px;
+	}
+  
+	.be-with-every-look {
+	  font-size: 56px;
+	  line-height: 70px;
+	}
+  
+	.frame-9 {
+	  width: auto;
+	}
+  }
+  
+  /* Large devices */
+  @media (min-width: 1024px) {
+	.flex-row-ff {
+	  flex-direction: row;
+	  height: 622px;
+	}
+  
+	.photoshoot-model {
+	  position: absolute;
+	  width: 782px;
+	  height: 622px;
+	}
+  
+	.unstoppable {
+	  font-size: 64px;
+	}
+  
+	.be-with-every-look {
+	  font-size: 64px;
+	  line-height: 85px;
+	}
+  
+	.frame-9 {
+	  width: 210px;
+	}
+  
+	.shop-now {
+	  text-align: left;
+	}
+  }
+  

@@ -5,11 +5,10 @@ import {Heading2} from "../misc/Text";
 import AOSProvider from "../providers/AosProvider";
 function TshirtSection() {
 	return (
-		<AOSProvider>
-			<div className='container w-full mx-auto my-10 px-4 md:px-12'>
+			<div className='container w-full mx-auto mt-5 mb-10 md:mt-0 md:mb-0 md:my-10 px-4 md:px-12'>
 				<Heading2>T-SHIRTS</Heading2>
 
-				<div className=' flex items-center justify-evenly flex-wrap  '>
+				<div className=' flex items-center justify-evenly flex-wrap md:gap-0 gap-10  '>
 					{[...Array(4)].map((_, index) => (
 						<SingleProduct
 							key={index}
@@ -27,7 +26,6 @@ function TshirtSection() {
 				</button>
 				<hr />
 			</div>
-		</AOSProvider>
 	);
 }
 

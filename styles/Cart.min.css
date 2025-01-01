@@ -50,6 +50,7 @@
     .cart-pricing-container {
       padding: 1rem;
       gap: 1rem;
+      width: 100%;
     }
   
     .promo-input {

@@ -6,10 +6,9 @@ import {Heading2} from "../misc/Text";
 
 function HoodiesSection() {
 	return (
-		<AOSProvider>
 			<div className=' w-full mx-auto pt-10 my-10 px-4 md:px-12'>
 				<Heading2>HOODIES</Heading2>
-				<div className='flex items-center justify-evenly flex-wrap'>
+				<div className=' flex items-center justify-evenly flex-wrap md:gap-0 gap-10  '>
 					{[...Array(4)].map((_, index) => (
 						<SingleProduct
 							key={index}
@@ -26,7 +25,6 @@ function HoodiesSection() {
 					<span className='view-all'>View All</span>
 				</button>
 			</div>
-		</AOSProvider>
 	);
 }
 

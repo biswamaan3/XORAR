@@ -9,7 +9,7 @@ export default function ProductActions() {
 	const [selectedSize, setSelectedSize] = useState(null);
 
 	return (
-		<div className=' w-full'>
+		<div className='w-full'>
 			<ProductDesc>Choose Size</ProductDesc>
 			<div className='flex gap-4 flex-wrap justify-start'>
 				{["Small", "Medium", "Large", "X-Large"].map((size, index) => (
@@ -22,9 +22,15 @@ export default function ProductActions() {
 				))}
 			</div>
 			<Separator className='my-5' />
-			<div className='flex justify-between items-center gap-5'>
-				<QuantityButton />
-				<AddToCartButton />
+			<div className='flex flex-wrap gap-5 justify-between items-center'>
+				<div className='flex gap-4 w-full '>
+					<div className='flex-1 basis-2/5'>
+						<QuantityButton />
+					</div>
+					<div className='flex-1 basis-3/5'>
+						<AddToCartButton />
+					</div>
+				</div>
 			</div>
 		</div>
 	);
@@ -46,7 +52,7 @@ export function SizeButton({size, isSelected, onClick}) {
 
 export function AddToCartButton() {
 	return (
-		<button className='flex w-full justify-center items-center bg-[#012f3f] text-white font-medium text-lg rounded-full py-3 px-6'>
+		<button className='w-full  bg-[#012f3f] text-white font-medium text-lg rounded-full py-3'>
 			Add to Cart
 		</button>
 	);

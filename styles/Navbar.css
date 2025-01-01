@@ -195,3 +195,10 @@
     z-index: 276;
     overflow: hidden;
   }
+
+
+  @media (max-width: 639px) {
+    .main-container {
+        padding: 20px 0;  
+    }
+}

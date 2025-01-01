@@ -7,7 +7,7 @@ function CartSection() {
 	return (
 		<>
 			<PageTitle className='mt-5 uppercase'>Your Cart</PageTitle>
-			<div className='flex flex-1 items-start justify-between '>
+			<div className='flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6'>
 				<CartItems />
 				<CartPricing />
 			</div>

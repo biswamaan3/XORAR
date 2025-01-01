@@ -9,7 +9,7 @@ export const PageTitle = ({className = "", children, ...props}) => {
 
 export const Heading2 = ({className = "", children, ...props}) => {
 	return (
-		<h3 className={`heading2 bold-text ${className}`} {...props}>
+		<h3 className={`heading2  bold-text ${className}`} {...props}>
 			{children}
 		</h3>
 	);

@@ -4,6 +4,7 @@
   margin: 0 auto;
   background: linear-gradient(140deg, #38aecc, #193447); /* Gradient applied */
   border-radius: 40px;
+  height: 860px;
 }
   .style-browser {
     position: absolute;
@@ -30,4 +31,24 @@
     font-size: 48px;
     font-weight: 700;
     text-align: center;
+  }
+  @media (max-width: 768px) {
+    .main-section{
+      height: auto;
+    }
+    .title-browse {
+     
+      font-size: 32px;
+      margin-bottom: -10px;
+    }
+    .style-browser{
+      position: relative;
+      padding-top: 20px;
+      overflow: visible;
+    }
+    .title-bento{
+      background-color: #b5b9bc58;
+      padding: 10px 5px;
+      border-radius: 10px;
+    }
   }

@@ -77,7 +77,7 @@ export const testimonials = [
 	{
 		name: "Emily S.",
 		text: `"The jackets I bought from Shop.co are fantastic! They keep me warm without being bulky and look great with every outfit!"`,
-		stars: 4,
+		stars: 4.5,
 	},
 	{
 		name: "Mike P.",
@@ -127,10 +127,10 @@ export default function Testimonials() {
 	return (
 		<div className='relative mx-auto mt-32'>
 			<div className='flex justify-between items-center w-[90%] mx-auto mb-[40px]'>
-				<h2 className='text-[48px] font-bold text-[#012f3f]'>
+				<h2 className='text-2xl md:text-[48px] font-bold text-[#012f3f]'>
 					OUR HAPPY CUSTOMERS
 				</h2>
-				<div className='flex space-x-4'>
+				<div className='flex space-x-2 md:space-x-4'>
 					<PrevArrow onClick={previous} />
 					<NextArrow onClick={next} />
 				</div>
@@ -146,6 +146,7 @@ export default function Testimonials() {
 				>
 					{testimonials.map((testimonial, index) => (
 						<TestimonialCard key={index}
+						ratings={testimonial.stars}
 						className=""
 						{...testimonial}  />
 					))}

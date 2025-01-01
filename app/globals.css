@@ -138,3 +138,28 @@ html {
 .slick-slide {
 	padding: 8px; /* Adjust the padding as needed */
 }
+
+@media (max-width: 768px) {
+	.frame-36 {
+		width: 100%;
+	}
+	.heading2 {
+		font-size: 32px;
+	}
+	.pageTitle {
+		font-size: 32px;
+	}
+	.pageName {
+		font-size: 24px;
+	}
+	.dollar-sign {
+		font-size: 20px;
+	}
+	.dollar-sign-b {
+		font-size: 20px;
+	}
+	.t-shirt-with-tape,
+	.product-name {
+		font-size: 16px;
+	}
+}

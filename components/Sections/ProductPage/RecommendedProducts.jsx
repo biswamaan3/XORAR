@@ -7,8 +7,8 @@ function RecommendedProducts() {
 		<div>
 			<Heading2 className='text-[#012F3F]'>YOU MAY ALSO LIKE</Heading2>
 
-			<div className=' flex items-center justify-evenly flex-wrap  '>
-				{[...Array(4)].map((_, index) => (
+			<div className=' flex items-center justify-evenly flex-wrap md:gap-0 gap-10  '>
+			{[...Array(4)].map((_, index) => (
 					<SingleProduct
 						key={index}
 						img={`/assets/img/products/tshirt${index + 1}.png`}

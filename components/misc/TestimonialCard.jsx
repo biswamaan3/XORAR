@@ -1,4 +1,4 @@
-import {FaCheckCircle} from "react-icons/fa";
+import {StarRating} from "./Buttons";
 
 export const TestimonialCard = ({
 	name,
@@ -7,20 +7,16 @@ export const TestimonialCard = ({
 	stars,
 	withDate,
 	withMenu,
+	ratings,
 	...props
 }) => (
 	<div
-		className={`flex flex-col min-w-[350px] h-[240px] p-[28px] rounded-[20px] border border-[rgba(0,0,0,0.1)] transition-all duration-300 ${className}`}
+		className={`flex flex-col min-w-[350px] min-h-[240px] p-[28px] rounded-[20px] border border-[rgba(0,0,0,0.1)] transition-all duration-300 ${className}`}
 		{...props}
 	>
 		<div className='flex items-start cursor-pointer justify-between'>
 			<div className='flex items-start mb-[15px]'>
-				{[...Array(stars)].map((_, i) => (
-					<div
-						key={i}
-						className='w-[22.5px] h-[22.5px] bg-[url(/assets/svg/Star_full.svg)] bg-cover mr-[6px]'
-					/>
-				))}
+				<StarRating ratings={ratings} />
 			</div>
 			{withMenu && (
 				<img src='/assets/svg/menuIcon.svg' className='text-gray-600' />
