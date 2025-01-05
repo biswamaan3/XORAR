@@ -1,23 +1,38 @@
 "use client";
 import React, {useState} from "react";
 import {ProductDesc, Separator} from "../../misc/Text";
-import {FiPlus} from "react-icons/fi";
-import {FiMinus} from "react-icons/fi";
+
 import {QuantityButton} from "@/components/misc/Buttons";
 
-export default function ProductActions() {
-	const [selectedSize, setSelectedSize] = useState(null);
+export default function ProductActions({
+	size,
+	selectedSize,
+	setSelectedSize,
+	quantiy,
+	setQuantity,
+	handleAddToCartButton,
+	isInCart,
+}) {
+	const handleQuantity = (type) => {
+		if (type === "increment") {
+			setQuantity(quantiy + 1);
+		} else {
+			if (quantiy > 1) {
+				setQuantity(quantiy - 1);
+			}
+		}
+	};
 
 	return (
 		<div className='w-full'>
 			<ProductDesc>Choose Size</ProductDesc>
 			<div className='flex gap-4 flex-wrap justify-start'>
-				{["Small", "Medium", "Large", "X-Large"].map((size, index) => (
+				{size?.map((sizeOp, index) => (
 					<SizeButton
 						key={index}
-						size={size}
-						isSelected={selectedSize === size}
-						onClick={() => setSelectedSize(size)}
+						size={sizeOp.name}
+						isSelected={selectedSize === sizeOp.name}
+						onClick={() => setSelectedSize(sizeOp.name)}
 					/>
 				))}
 			</div>
@@ -25,10 +40,20 @@ export default function ProductActions() {
 			<div className='flex flex-wrap gap-5 justify-between items-center'>
 				<div className='flex gap-4 w-full '>
 					<div className='flex-1 basis-2/5'>
-						<QuantityButton />
+						<QuantityButton
+							quantity={quantiy}
+							onChange={handleQuantity}
+						/>
 					</div>
-					<div className='flex-1 basis-3/5'>
-						<AddToCartButton />
+					<div className='flex-1 basis-4/5'>
+						<button
+							className={`w-full bg-[#012f3f] text-white font-medium text-lg rounded-full py-3 ${
+								isInCart ? "bg-blue-600" : ""
+							}`}
+							onClick={handleAddToCartButton}
+						>
+							{isInCart ? "Already Added to Cart" : "Add to Cart"}
+						</button>
 					</div>
 				</div>
 			</div>
@@ -50,9 +75,13 @@ export function SizeButton({size, isSelected, onClick}) {
 	);
 }
 
-export function AddToCartButton() {
+export function AddToCartButton({onClick, ...props}) {
 	return (
-		<button className='w-full  bg-[#012f3f] text-white font-medium text-lg rounded-full py-3'>
+		<button
+			className='w-full  bg-[#012f3f] text-white font-medium text-lg rounded-full py-3'
+			{...props}
+			onClick={onClick}
+		>
 			Add to Cart
 		</button>
 	);

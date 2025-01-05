@@ -7,13 +7,15 @@ import TshirtSection from '@/components/Sections/TshirtSection'
 import Testimonials from '@/components/Testimonials'
 import React from 'react'
 
-function page() {
+async function page() {
+  const data = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/external/product/latest_t_h`);
+  const products = await data.json();
   return (
     <div>
    
       <Hero/>
-      <TshirtSection/>
-      <HoodiesSection/>
+      <TshirtSection tshirt={products?.data?.tShirts} />
+      <HoodiesSection hoodies={products?.data?.hoodies}/>
       <BentoGrid/>
       <Testimonials/>
     </div>

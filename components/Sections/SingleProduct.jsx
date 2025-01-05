@@ -16,14 +16,14 @@ function SingleProduct({
   ...props
 }) {
   return (
-<div className="w-auto block" {...props}>
+<div className="w-auto block mx-auto" {...props}>
   <Link href={link}>
     {/* Product Image */}
     <div className="relative max-w-[295px] max-h-[298px] bg-[#f0eeed] z-8 overflow-hidden rounded-2xl">
       <img
         src={img}
         alt="tshirt image"
-        className="object-contain w-full h-full"
+        className="object-cover w-full h-full"
       />
     </div>
 
@@ -43,8 +43,10 @@ function SingleProduct({
 
     {priceShow && (
       <div className="mt-2 flex items-center space-x-2">
-        <span className="text-[24px] text-black font-satoshi font-extrabold">${price}</span>
-        <span className="text-[24px] line-through text-gray-500 font-satoshi font-[700]">$260</span>
+        <span className="text-[24px] text-black font-satoshi font-extrabold">
+          {process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}
+          {price}</span>
+        <span className="text-[24px] line-through text-gray-500 font-satoshi font-[700]">{process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}260</span>
         <button className="flex items-center justify-center px-4 py-2 bg-red-100 rounded-full">
           <span className="text-red-600 text-xs font-medium">-20%</span>
         </button>

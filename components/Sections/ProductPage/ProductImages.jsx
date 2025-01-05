@@ -1,16 +1,9 @@
 "use client";
 import React, {useState} from "react";
 
-export default function ProductImages() {
-	const [primaryImage, setPrimaryImage] = useState(
-		"/assets/img/products/tshirt1.png"
-	);
-
-	const thumbnails = [
-		"/assets/img/products/tshirt2.png",
-		"/assets/img/products/tshirt3.png",
-		"/assets/img/products/tshirt4.png",
-	];
+export default function ProductImages({thumbnail, images}) {
+	const [primaryImage, setPrimaryImage] = useState(thumbnail);
+	const [thumbnails, setThumbnails] = useState(images);
 
 	return (
 		<div className='flex flex-col-reverse sm:flex-row items-center sm:items-start gap-4 w-full max-w-[1200px] mx-auto'>

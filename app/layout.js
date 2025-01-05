@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import localFont from "next/font/local";
 import AppProvider from "@/components/providers/AppProvider";
 import AOSProvider from "@/components/providers/AosProvider";
+import {Bounce, ToastContainer} from "react-toastify";
 const SilentForest = localFont({
 	name: "SilentForest",
 	src: "fonts/SilentForest.ttf",
@@ -83,6 +84,20 @@ export default function RootLayout({children}) {
 
 						<div className='border-[1px] w-[90%] mx-auto'></div>
 						{children}
+						<ToastContainer
+							position='top-center'
+							autoClose={5000}
+							hideProgressBar={false}
+							newestOnTop={false}
+							closeOnClick={false}
+							rtl={false}
+							pauseOnFocusLoss
+							draggable
+							pauseOnHover
+							theme='colored'
+							transition={Bounce}
+						/>
+
 						<Footer />
 					</AOSProvider>
 				</AppProvider>

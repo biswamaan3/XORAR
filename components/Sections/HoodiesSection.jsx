@@ -1,22 +1,21 @@
 import React from "react";
 import SingleProduct from "./SingleProduct";
 import "@/styles/ProductListing.min.css";
-import AOSProvider from "../providers/AosProvider";
 import {Heading2} from "../misc/Text";
 
-function HoodiesSection() {
+function HoodiesSection({hoodies}) {
 	return (
 			<div className=' w-full mx-auto pt-10 my-10 px-4 md:px-12'>
 				<Heading2>HOODIES</Heading2>
 				<div className=' flex items-center justify-evenly flex-wrap md:gap-0 gap-10  '>
-					{[...Array(4)].map((_, index) => (
+					{hoodies.map((hoodie, index) => (
 						<SingleProduct
 							key={index}
-							img={`/assets/img/products/tshirt${index + 1}.png`}
-							title='T-SHIRT'
-							price='120'
+							img={hoodie.thumbnail}
+							title={hoodie.title}
+							price={hoodie.price}
 							ratings='4.5'
-							link={`/shop/hoddies/${index + 1}`}
+							link={`/shop/hoodies/${hoodie.slug}`}
 							data-aos='fade-up'
 						/>
 					))}

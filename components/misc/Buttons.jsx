@@ -24,20 +24,27 @@ export function MoveToBag() {
 	);
 }
 export const QuantityButton = ({
-	quantity = 1,
+	quantity=1,
 	onChange,
 	className = "py-3 px-4",
 	children,
 	...props
 }) => {
+	const handleDecrement = () => {
+		onChange("decrement"); 
+	};
+
+	const handleIncrement = () => {
+		onChange("increment"); 
+	};
 	return (
 		<div
 			className={`flex min-w-100 max-w-[150px] items-center gap-8 bg-gray-200 rounded-full ${className}`}
 			{...props}
 		>
-			<FiMinus className='w-6 h-6 cursor-pointer' />
+			<FiMinus className='w-6 h-6 cursor-pointer' onClick={handleDecrement} />
 			<span className='text-lg font-semibold'>{quantity}</span>
-			<FiPlus className='w-6 h-6 cursor-pointer' />
+			<FiPlus className='w-6 h-6 cursor-pointer' onClick={handleIncrement} />
 		</div>
 	);
 };
@@ -69,7 +76,40 @@ export const StarRating = ({ratings}) => {
 
 			{/* Empty stars */}
 			{Array.from({length: emptyStars}).map((_, index) => (
-				<span key={`empty-${index}`} className='w-5 h-5 ' />
+				<span key={`empty-${index}`} className='w-5 h-5  ' />
+			))}
+		</div>
+	);
+};
+
+export const BigStarRating = ({ratings}) => {
+	const fullStars = Math.floor(ratings);
+	const halfStars = ratings % 1 >= 0.5 ? 1 : 0;
+	const emptyStars = 5 - fullStars - halfStars;
+
+	return (
+		<div className=' flex items-center gap-2 z-10'>
+			{Array.from({length: fullStars}).map((_, index) => (
+				<img
+					key={`full-${index}`}
+					src='/assets/svg/Star_full.svg'
+					alt='star'
+					className='w-[25px] h-[25px] mr-6'
+				/>
+			))}
+
+			{/* Half star */}
+			{halfStars === 1 && (
+				<img
+					src='/assets/svg/Star_half.svg'
+					alt='half star'
+					className='w-[25px] h-[25px] mr-6'
+				/>
+			)}
+
+			{/* Empty stars */}
+			{Array.from({length: emptyStars}).map((_, index) => (
+				<span key={`empty-${index}`} className='w-5 h-5  ' />
 			))}
 		</div>
 	);
