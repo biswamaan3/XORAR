@@ -4,14 +4,13 @@ import ProductOption from "./ProductOption";
 import ProductActions from "./ProductActions";
 import {Separator} from "../../misc/Text";
 import {BigStarRating, StarRating} from "@/components/misc/Buttons";
-import {handleAddToCart, handleAddToWishlist} from "@/lib/utils";
 import {Bounce, toast} from "react-toastify";
 import {IoHeartCircleOutline} from "react-icons/io5";
+import {useAppProvider} from "@/components/providers/AppProvider";
 
 function HeartIconWithTooltip({onClick, isInWishlist}) {
 	return (
 		<div className='group'>
-		
 			<IoHeartCircleOutline
 				onClick={onClick}
 				data-tooltip-target='tooltip-default'
@@ -46,7 +45,7 @@ export default function ProductDescription({product}) {
 			setSelectedDesign(existingProduct?.design);
 		}
 	}, [cart, product.id]);
-
+	const {handleAddToCart, handleAddToWishlist} = useAppProvider();
 	const handleAddToWishlistBtn = async () => {
 		if (
 			!selectedSize ||

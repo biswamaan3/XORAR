@@ -4,6 +4,7 @@ import {PageTitle} from "../misc/Text";
 import CartItems from "./CartPage/CartItems";
 import CartPricing from "./CartPage/CartPricing";
 import {toast} from "react-toastify";
+import { useAppProvider } from "../providers/AppProvider";
 const calculateTotalPrice = (items) => {
 	return items.reduce((acc, item) => acc + item.price * item.quantity, 0);
 };
@@ -16,10 +17,12 @@ function CartSection() {
 		setCartItems(items);
 	}, []);
 
+	const {updateCard} = useAppProvider();
 	const handleRemoveItem = (id) => {
 		const updatedCart = cartItems.filter((item) => item.id !== id);
 		localStorage.setItem("cart", JSON.stringify(updatedCart));
 		setCartItems(updatedCart);
+		updateCard("decrement");
 		toast.success("Item removed from cart!");
 	};
 

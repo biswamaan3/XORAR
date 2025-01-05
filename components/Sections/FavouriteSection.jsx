@@ -2,13 +2,13 @@
 import React, {useEffect, useState} from "react";
 import {PageTitle} from "../misc/Text";
 import SingleProduct from "./SingleProduct";
-import {handleAddToCart} from "@/lib/utils";
 import {TbLocationHeart} from "react-icons/tb";
+import { useAppProvider } from "../providers/AppProvider";
 
 function FavouriteSection() {
 	const [wishlist, setWishlist] = useState([]);
 	const [cart, setCart] = useState([]);
-
+	const {handleAddToCart, updateWishlist} = useAppProvider();
 	useEffect(() => {
 		const fetchedWishlist =
 			JSON.parse(localStorage.getItem("wishlist")) || [];
@@ -20,7 +20,7 @@ function FavouriteSection() {
 
 	const moveToCartBtn = (product) => {
 		handleAddToCart(product);
-
+		updateWishlist("decrement");
 		const updatedWishlist = wishlist.filter(
 			(item) => item.id !== product.id
 		);

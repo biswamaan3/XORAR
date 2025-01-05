@@ -3,9 +3,9 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import localFont from "next/font/local";
-import AppProvider from "@/components/providers/AppProvider";
 import AOSProvider from "@/components/providers/AosProvider";
 import {Bounce, ToastContainer} from "react-toastify";
+import {AppProvider} from "@/components/providers/AppProvider";
 const SilentForest = localFont({
 	name: "SilentForest",
 	src: "fonts/SilentForest.ttf",

@@ -1,7 +1,5 @@
 "use client";
 import {FiMinus, FiPlus} from "react-icons/fi";
-import {useAppContext} from "../providers/AppProvider";
-import {useState} from "react";
 
 export const ViewMoreButton = ({
 	parentClass = "",
