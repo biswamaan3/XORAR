@@ -42,6 +42,7 @@ function CartSection() {
 					handleQuantityChange={handleQuantityChange}
 				/>
 				<CartPricing
+					cartItems={cartItems}
 					totalPrice={calculateTotalPrice(cartItems).toFixed(2)}
 					deliveryFee={200}
 				/>

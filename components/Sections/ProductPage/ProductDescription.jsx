@@ -4,8 +4,31 @@ import ProductOption from "./ProductOption";
 import ProductActions from "./ProductActions";
 import {Separator} from "../../misc/Text";
 import {BigStarRating, StarRating} from "@/components/misc/Buttons";
-import {handleAddToCart} from "@/lib/utils";
+import {handleAddToCart, handleAddToWishlist} from "@/lib/utils";
 import {Bounce, toast} from "react-toastify";
+import {IoHeartCircleOutline} from "react-icons/io5";
+
+function HeartIconWithTooltip({onClick, isInWishlist}) {
+	return (
+		<div className='group'>
+			<div
+				id='tooltip-default'
+				role='tooltip'
+				className='absolute opacity-0 group-hover:opacity-100 text-center -ml-14 -mt-9 min-w-40 w-auto z-10 px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm tooltip dark:bg-gray-600'
+			>
+				{!isInWishlist ? "Add to " : "Remove From "} Wishlist
+				<div className='tooltip-arrow' data-popper-arrow></div>
+			</div>
+			<IoHeartCircleOutline
+				onClick={onClick}
+				data-tooltip-target='tooltip-default'
+				className={`${
+					isInWishlist ? "text-[#ff3333]" : "text-gray-400"
+				} text-[24px] group md:text-[32px] right-0 lg:text-[40px] cursor-pointer`}
+			/>
+		</div>
+	);
+}
 
 export default function ProductDescription({product}) {
 	const [selectedSize, setSelectedSize] = useState(null);
@@ -13,10 +36,13 @@ export default function ProductDescription({product}) {
 	const [selectedColor, setSelectedColor] = useState(null);
 	const [selectedDesign, setSelectedDesign] = useState(null);
 
-	// Check if the product is already in the cart
 	const [cart, setCart] = useState(
 		JSON.parse(localStorage?.getItem("cart")) || []
 	);
+	const [wishlist, setWishlist] = useState(
+		JSON.parse(localStorage?.getItem("wishlist")) || []
+	);
+
 	useEffect(() => {
 		const existingProduct = cart.find((item) => item.id === product.id);
 
@@ -28,8 +54,53 @@ export default function ProductDescription({product}) {
 		}
 	}, [cart, product.id]);
 
+	const handleAddToWishlistBtn = async () => {
+		if (
+			!selectedSize ||
+			!selectedColor ||
+			(product.design && !selectedDesign)
+		) {
+			toast.error(
+				"Please select size, color, and design before adding to cart!",
+				{
+					position: "top-center",
+					autoClose: 5000,
+					hideProgressBar: false,
+					closeOnClick: false,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+					theme: "colored",
+					transition: Bounce,
+				}
+			);
+			return;
+		}
+
+		await handleAddToWishlist({
+			id: product.id,
+			title: product.title,
+			price: product.price,
+			quantity,
+			size: selectedSize,
+			color: selectedColor,
+			design: selectedDesign,
+			rating: product.averageRating,
+			addedOn: new Date().toISOString(),
+			thumbnail: product.thumbnail,
+		});
+
+		const updatedWishlist =
+			JSON.parse(localStorage.getItem("wishlist")) || [];
+		setWishlist(updatedWishlist);
+	};
+
 	const handleAddToCartButton = async () => {
-		if (!selectedSize || !selectedColor || (product.design && !selectedDesign)) {
+		if (
+			!selectedSize ||
+			!selectedColor ||
+			(product.design && !selectedDesign)
+		) {
 			toast.error(
 				"Please select size, color, and design before adding to cart!",
 				{
@@ -58,14 +129,21 @@ export default function ProductDescription({product}) {
 			addedOn: new Date().toISOString(),
 			thumbnail: product.thumbnail,
 		});
+
 		const updatedCart = JSON.parse(localStorage.getItem("cart")) || [];
 		setCart(updatedCart);
 	};
 
 	return (
 		<div className='h-auto text-[0px] relative mx-auto px-4 sm:w-[100%]'>
-			<span className='block text-[20px] md:text-[28px] lg:text-[40px] font-bold leading-tight text-[#000] relative text-left z-[2] whitespace-normal'>
+			<span className='flex justify-between items-start text-[20px] md:text-[28px] lg:text-[40px] font-bold leading-tight text-[#000] relative text-left z-[2] whitespace-normal'>
 				{product.title}
+				<HeartIconWithTooltip
+					onClick={handleAddToWishlistBtn}
+					isInWishlist={wishlist.some(
+						(item) => item.id === product.id
+					)}
+				/>
 			</span>
 
 			{/* Ratings */}
@@ -85,10 +163,12 @@ export default function ProductDescription({product}) {
 
 			<div className='flex items-center mt-4 gap-3'>
 				<span className='text-[24px] md:text-[32px] font-bold text-[#000]'>
-				{process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}{product.price}
+					{process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}
+					{product.price}
 				</span>
-				<span className=' text-[20px] md:text-[32px] font-bold text-gray-300 line-through'>
-				{process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}{product.actual_price}
+				<span className='text-[20px] md:text-[32px] font-bold text-gray-300 line-through'>
+					{process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}
+					{product.actual_price}
 				</span>
 				<span className='py-1.5 px-3 text-[15px] md:text-[16px] font-medium text-[#ff3333] bg-[rgba(255,51,51,0.1)] rounded-full'>
 					-{product.discount_percent}%

@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import "@/styles/Navbar.css";
 import ShopDropDown from "./ShopDropDown";
+import NavbarButtons from "./NavbarButtons";
 
 export default function Navbar() {
 	return (
@@ -39,24 +40,7 @@ export default function Navbar() {
 					</div>
 				</form>
 
-				<div className='flex items-center gap-3'>
-					<Link href='/cart'>
-						<Image
-							src='/assets/svg/cart.svg'
-							width={28}
-							height={28}
-							alt='Cart Icon'
-						/>
-					</Link>
-					<Link href='/favourites'>
-						<Image
-							src='/assets/svg/Heart.svg'
-							width={28}
-							height={28}
-							alt='Heart Icon'
-						/>
-					</Link>
-				</div>
+				<NavbarButtons />
 			</div>
 		</div>
 	);

@@ -45,6 +45,7 @@ export default function ProductActions({
 							onChange={handleQuantity}
 						/>
 					</div>
+					
 					<div className='flex-1 basis-4/5'>
 						<button
 							className={`w-full bg-[#012f3f] text-white font-medium text-lg rounded-full py-3 ${
