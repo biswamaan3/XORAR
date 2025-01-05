@@ -1,33 +1,29 @@
 "use client";
-import React, {useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import FilterBar from "./FilterBar";
 import FilterHeader from "./FilterHeader";
 import SingleProduct from "../SingleProduct";
 import Pagination from "./Pagination";
 
-function ProductList() {
-	// State to control the modal visibility
+function ProductList({category}) {
 	const [isFilterOpen, setIsFilterOpen] = useState(false);
 
-	// Function to toggle the filter modal
 	const toggleFilterModal = () => {
 		setIsFilterOpen(!isFilterOpen);
 	};
 
+	
+
 	return (
 		<div>
 			<div className='grid grid-cols-1 lg:grid-cols-9 gap-5 mt-10'>
-				{/* FilterBar: Visible only on large screens */}
 				<div className='col-span-2 lg:block hidden'>
 					<FilterBar />
 				</div>
 
-				{/* Product Section */}
 				<div className='col-span-7 w-full'>
-					{/* Filter Header with a button to toggle the modal on small screens */}
 					<FilterHeader handleOpenFilter={toggleFilterModal} />
 
-					{/* Gap Between Header and Products */}
 					<div className='mt-10 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10'>
 						{/* Products */}
 						{[...Array(12)].map((_, index) => (

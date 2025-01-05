@@ -21,14 +21,14 @@ export default function ProductOption({colors, design,selectedColor, setSelected
 						<div
 							key={color.id}
 							className={`w-[37px] h-[37px] border-[0.5px] rounded-full relative cursor-pointer ${
-								selectedColor === index
+								selectedColor === color.id
 									? "border-2 border-blue-500"
 									: ""
 							}`}
 							style={{backgroundColor: color.code}}
-							onClick={() => setSelectedColor(index)}
+							onClick={() => setSelectedColor(color.id)}
 						>
-							{selectedColor === index && (
+							{selectedColor === color.id && (
 								<span className='absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] text-gray-200 text-[16px] font-bold'>
 									✓
 								</span>
@@ -46,14 +46,14 @@ export default function ProductOption({colors, design,selectedColor, setSelected
 						<div
 							key={index}
 							className={`w-[37px] h-[37px] bg-cover bg-no-repeat rounded-full relative cursor-pointer ${
-								selectedDesign === index
+								selectedDesign === design.id
 									? "ring-2 ring-blue-600"
 									: ""
 							}`}
 							style={{backgroundImage: `url(${design})`}}
-							onClick={() => setSelectedDesign(index)}
+							onClick={() => setSelectedDesign(design.id)}
 						>
-							{selectedDesign === index && (
+							{selectedDesign === design.id && (
 								<span className='absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] text-white text-[16px] font-bold'>
 									✓
 								</span>

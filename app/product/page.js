@@ -6,12 +6,9 @@ import React from "react";
 
 function page() {
 	return (
-		<div className='container w-[90%] mx-auto'>
-			<Breadcrumb />
-			<ProductsProvider>
+		
 				<ProductList />
-			</ProductsProvider>
-		</div>
+			
 	);
 }
 

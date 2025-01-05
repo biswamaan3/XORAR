@@ -15,7 +15,7 @@ export default function ProductDescription({product}) {
 
 	// Check if the product is already in the cart
 	const [cart, setCart] = useState(
-		JSON.parse(localStorage.getItem("cart")) || []
+		JSON.parse(localStorage?.getItem("cart")) || []
 	);
 	useEffect(() => {
 		const existingProduct = cart.find((item) => item.id === product.id);

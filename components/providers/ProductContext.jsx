@@ -1,56 +1,77 @@
-"use client"
-import React, { createContext, useState, useEffect, useContext } from 'react';
+"use client";
+
+import axios from "axios";
+import React, {createContext, useState, useContext} from "react";
 
 const ProductsContext = createContext();
 
-export const ProductsProvider = ({ children }) => {
-    const [filters, setFilters] = useState({
-        category: [],
-        size: [],
-        color: [],
-        type: [],
-        priceRange: { min: 0, max: 100 },
-      });  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
+export const ProductsProvider = ({children, properties}) => {
+	const [filters, setFilters] = useState({
+		category: [],
+		size: [],
+		color: [],
+		type: [],
+		priceRange: {min: 0, max: 100000},
+	});
+	const [products, setProducts] = useState([]);
+	const [loading, setLoading] = useState(false);
 
-  const fetchProducts = async () => {
-    setLoading(true);
-    const filterParams = new URLSearchParams();
-    if (filters.category.length > 0) filterParams.append('category', filters.category.join(','));
-    if (filters.size.length > 0) filterParams.append('size', filters.size.join(','));
-    if (filters.color.length > 0) filterParams.append('color', filters.color.join(','));
-    if (filters.type.length > 0) filterParams.append('type', filters.type.join(','));
-    if (filters.priceRange) {
-      filterParams.append('minPrice', filters.priceRange.min.toString());
-      filterParams.append('maxPrice', filters.priceRange.max.toString());
-    }
+	const updateFilters = (type, value) => {
+		setFilters((prev) => {
+			if (type === "priceRange") {
+				return {...prev, priceRange: value};
+			}
+			const updatedValues = prev[type].includes(value)
+				? prev[type].filter((item) => item !== value)
+				: [...prev[type], value];
+			return {...prev, [type]: updatedValues};
+		});
+	};
 
-    try {
-      const response = await fetch(`/api/products?${filterParams.toString()}`);
-      const data = await response.json();
-      setProducts(data.products);
-    } catch (error) {
-      console.error('Error fetching products:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
+	async function applyFilters() {
+		// setLoading(true);
+		// const filterPayload = {
+		// 	category: filters.category,
+		// 	style: filters.type,
+		// 	color: filters.color,
+		// 	size: filters.size,
+		// 	price_min: filters.priceRange.min,
+		// 	price_max: filters.priceRange.max,
+		// };
+  
 
-//   useEffect(() => {
-//     fetchProducts();
-//   }, [filters]);
+		// try {
+		// 	const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/external/product/filter`,
+		// 		{
+        //   method: "POST",
+        //   headers,
+		// 			body: filterPayload,
+		// 		}
+		// 	);
 
-  return (
-    <ProductsContext.Provider value={{ products, filters, setFilters, loading }}>
-      {children}
-    </ProductsContext.Provider>
-  );
+		// 	setProducts(response.data.products || []);
+		// } catch (error) {
+		// 	console.error("Error fetching products:", error);
+		// } finally {
+		// 	setLoading(false);
+		// }
+		return;
+	}
+
+	return (
+		<ProductsContext.Provider
+			value={{
+				properties,
+				filters,
+				updateFilters,
+				applyFilters,
+				products,
+				loading,
+			}}
+		>
+			{children}
+		</ProductsContext.Provider>
+	);
 };
 
-export const useProducts = () => {
-  const context = useContext(ProductsContext);
-  if (!context) {
-    throw new Error('useProducts must be used within a ProductsProvider');
-  }
-  return context;
-};
+export const useProduct = () => useContext(ProductsContext);

@@ -31,7 +31,7 @@ const FilterHeader = ({handleOpenFilter}) => {
 				<button 
                 onClick={handleOpenFilter}
                 className='md:hidden  filter-btn flex items-center gap-2  text-black py-2 px-4 rounded-md hover:bg-gray-300'>
-                    <img src="/assets/svg/reviews-filter.svg" className="w-5 h-5" alt="" srcset="" />
+                    <img src="/assets/svg/reviews-filter.svg" className="w-5 h-5" alt="" />
 					Filter
 
 				</button>

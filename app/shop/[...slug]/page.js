@@ -5,7 +5,6 @@ import ProductComp from "@/components/ProductComp";
 import React from "react";
 import { notFound } from "next/navigation";
 
-// Function to fetch product data based on the slug
 async function getPost(slug) {
 	const res = await fetch(
 		`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/external/product/one?slug=${slug}`
@@ -16,8 +15,7 @@ async function getPost(slug) {
 }
 
 export async function generateMetadata({ params }) {
-	// Extract the last segment of the slug array
-	const slug = (await params).slug[(await params).slug.length - 1]; // Get the last part of the slug array
+	const slug = (await params).slug[(await params).slug.length - 1]; 
 	const post = await getPost(slug); // Fetch product based on the slug
 	return {
 		title: post.title, // Use the product title for metadata
