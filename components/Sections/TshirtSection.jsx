@@ -5,6 +5,7 @@ import "@/styles/ProductListing.min.css";
 import { Heading2 } from "../misc/Text";
 import AOSProvider from "../providers/AosProvider";
 import SingleProductSkeleton from "../loaders/SingleProductSkeleton";
+import Link from "next/link";
 
 function TshirtSection({ tshirt }) {
   const [loading, setLoading] = useState(true);
@@ -34,9 +35,9 @@ function TshirtSection({ tshirt }) {
               />
             ))}
       </div>
-      <button className="frame-36">
+      <Link href={"/product/all?category=t-shirt"}  className="frame-36">
         <span className="view-all">View All</span>
-      </button>
+      </Link>
       <hr />
     </div>
   );

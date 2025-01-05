@@ -1,6 +1,6 @@
 import Breadcrumb from "@/components/misc/Breadcrumb";
 import {ProductsProvider} from "@/components/providers/ProductContext";
-import React from "react";
+import React, { Suspense } from "react";
 
 async function RootLayout({children}) {
 	const data = await fetch(
@@ -10,9 +10,12 @@ async function RootLayout({children}) {
 	return (
 		<div className='container w-[90%] mx-auto'>
 			<Breadcrumb />
+			<Suspense>
 			<ProductsProvider properties={properties?.properties}>
 				{children}
 			</ProductsProvider>
+			</Suspense>
+			
 		</div>
 	);
 }

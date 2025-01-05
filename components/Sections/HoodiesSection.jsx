@@ -4,6 +4,7 @@ import SingleProduct from "./SingleProduct";
 import "@/styles/ProductListing.min.css";
 import { Heading2 } from "../misc/Text";
 import SingleProductSkeleton from "../loaders/SingleProductSkeleton";
+import Link from "next/link";
 
 function HoodiesSection({ hoodies }) {
   const [loading, setLoading] = useState(true);
@@ -35,9 +36,9 @@ function HoodiesSection({ hoodies }) {
             ))}
       </div>
 
-      <button className="frame-36">
+      <Link href={"/product/all?category=hoodies"} className="frame-36">
         <span className="view-all">View All</span>
-      </button>
+      </Link>
     </div>
   );
 }
