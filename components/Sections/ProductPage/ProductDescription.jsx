@@ -11,14 +11,7 @@ import {IoHeartCircleOutline} from "react-icons/io5";
 function HeartIconWithTooltip({onClick, isInWishlist}) {
 	return (
 		<div className='group'>
-			<div
-				id='tooltip-default'
-				role='tooltip'
-				className='absolute opacity-0 group-hover:opacity-100 text-center -ml-14 -mt-9 min-w-40 w-auto z-10 px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm tooltip dark:bg-gray-600'
-			>
-				{!isInWishlist ? "Add to " : "Remove From "} Wishlist
-				<div className='tooltip-arrow' data-popper-arrow></div>
-			</div>
+		
 			<IoHeartCircleOutline
 				onClick={onClick}
 				data-tooltip-target='tooltip-default'
@@ -81,6 +74,7 @@ export default function ProductDescription({product}) {
 			id: product.id,
 			title: product.title,
 			price: product.price,
+			slug: product.slug,
 			quantity,
 			size: selectedSize,
 			color: selectedColor,
@@ -123,6 +117,7 @@ export default function ProductDescription({product}) {
 			title: product.title,
 			price: product.price,
 			quantity,
+			slug: product.slug,
 			size: selectedSize,
 			color: selectedColor,
 			design: selectedDesign,
@@ -135,7 +130,7 @@ export default function ProductDescription({product}) {
 	};
 
 	return (
-		<div className='h-auto text-[0px] relative mx-auto px-4 sm:w-[100%]'>
+		<div className='h-auto text-[0px] relative mx-auto px-4 sm:w-[100%] overflow-hidden'>
 			<span className='flex justify-between items-start text-[20px] md:text-[28px] lg:text-[40px] font-bold leading-tight text-[#000] relative text-left z-[2] whitespace-normal'>
 				{product.title}
 				<HeartIconWithTooltip

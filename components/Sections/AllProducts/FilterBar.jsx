@@ -1,163 +1,219 @@
 "use client";
 
-import React, { useState } from "react";
-import { SizeButton } from "../ProductPage/ProductActions";
+import React, {useState} from "react";
+import {SizeButton} from "../ProductPage/ProductActions";
 import RangeSlider from "./RangeSlider";
 import Image from "next/image";
-import { useProduct } from "@/components/providers/ProductContext";
+import {useProduct} from "@/components/providers/ProductContext";
 
-const ColorCircle = ({ color, isSelected, onClick }) => (
-  <div
-    className={`w-[37px] h-[37px] rounded-full relative cursor-pointer border-2 ${isSelected ? "border-blue-500" : "border-black"}`}
-    style={{ backgroundColor: color }}
-    onClick={() => onClick(color)}
-  />
+const ColorCircle = ({color, isSelected, onClick}) => (
+	<div
+		className={`w-[37px] h-[37px] rounded-full relative cursor-pointer border-2 ${
+			isSelected ? "border-blue-500 border-4" : "border-gray-100"
+		}`}
+		style={{backgroundColor: color}}
+		onClick={() => onClick(color)}
+	/>
 );
 
-const CollapsibleSection = ({ title, children, isOpen, onToggle, noChevron = false }) => (
-  <div className="flex flex-col w-full">
-    <div className="flex justify-between items-center w-full cursor-pointer" onClick={onToggle}>
-      <span className="font-satoshi text-xl font-bold text-black">{title}</span>
-      {!noChevron && (
-        <Image
-          src="/assets/svg/chevron_top.svg"
-          width={15}
-          height={10}
-          className={`transition-transform ${isOpen ? "rotate-180" : ""}`}
-          alt="chevron-top"
-        />
-      )}
-    </div>
-    <div className={`overflow-hidden transition-all duration-600 ${isOpen ? "max-h-[500px] mt-3" : "max-h-0"}`}>
-      {isOpen && children}
-    </div>
-  </div>
+const CollapsibleSection = ({
+	title,
+	children,
+	isOpen,
+	onToggle,
+	noChevron = false,
+}) => (
+	<div className='flex flex-col w-full'>
+		<div
+			className='flex justify-between items-center w-full cursor-pointer'
+			onClick={onToggle}
+		>
+			<span className='font-satoshi text-xl font-bold text-black'>
+				{title}
+			</span>
+			{!noChevron && (
+				<Image
+					src='/assets/svg/chevron_top.svg'
+					width={15}
+					height={10}
+					className={`transition-transform ${
+						isOpen ? "rotate-180" : ""
+					}`}
+					alt='chevron-top'
+				/>
+			)}
+		</div>
+		<div
+			className={`overflow-hidden transition-all duration-600 ${
+				isOpen ? "max-h-[500px] mt-3" : "max-h-0"
+			}`}
+		>
+			{isOpen && children}
+		</div>
+	</div>
 );
 
 const FilterBar = () => {
-  const { properties, filters, updateFilters, applyFilters } = useProduct();
-  const [openSections, setOpenSections] = useState({
-    price: false,
-    colors: false,
-    size: false,
-    dressStyle: false,
-  });
+	const {properties, filters, updateFilters, applyFilters} = useProduct();
+	const [openSections, setOpenSections] = useState({
+		price: false,
+		colors: false,
+		size: false,
+		dressStyle: false,
+	});
 
-  const toggleSection = (section) => {
-    setOpenSections((prev) => ({ ...prev, [section]: !prev[section] }));
-  };
 
-  const handleFilterChange = (type, value) => {
-    updateFilters(type, value);
-  };
+	const toggleSection = (section) => {
+		setOpenSections((prev) => ({...prev, [section]: !prev[section]}));
+	};
 
-  const handlePriceChange = (min, max) => {
-    updateFilters("priceRange", { min, max });
-  };
+	const handleFilterChange = (type, value) => {
+		updateFilters(type, value);
+	};
 
-  return (
-    <div className="flex flex-col p-4 gap-4 mx-auto rounded-lg border border-[rgba(0,0,0,0.1)] overflow-hidden">
-      <header className="flex justify-between items-center w-full">
-        <span className="font-satoshi text-xl font-bold text-black">Filters</span>
-        <img src="/assets/svg/reviews-filter.svg" className="w-5 h-5 opacity-40" alt="Filter icon" />
-      </header>
+	const handlePriceChange = (value) => {
+		updateFilters("priceRange", {min: value.min, max:value.max});
+	};
 
-      <div className="border-t border-gray-300 my-2" />
+	return (
+		<div className='flex flex-col p-4 gap-4 mx-auto rounded-lg border border-[rgba(0,0,0,0.1)] overflow-hidden'>
+			<header className='flex justify-between items-center w-full'>
+				<span className='font-satoshi text-xl font-bold text-black'>
+					Filters
+				</span>
+				<img
+					src='/assets/svg/reviews-filter.svg'
+					className='w-5 h-5 opacity-40'
+					alt='Filter icon'
+				/>
+			</header>
 
-      <div className="flex flex-col gap-5 w-full">
-        {properties?.categories.map((category, idx) => (
-          <div className="flex justify-between items-center w-full" key={idx}>
-            <span
-              className="text-base text-gray-600 cursor-pointer"
-              onClick={() => handleFilterChange("category", category.name)}
-            >
-              {category.name}
-            </span>
-            <Image src="/assets/svg/chevron_top.svg" width={15} height={10} className="rotate-90 opacity-60" alt="chevron-top" />
-          </div>
-        ))}
-      </div>
+			<div className='border-t border-gray-300 my-2' />
 
-      <div className="border-t border-gray-300 mt-2" />
+			<div className='flex flex-col gap-1 w-full'>
+				{properties?.categories.map((category) => (
+					<div
+						className={`flex justify-between items-center w-full py-2 px-1 cursor-pointer ${
+							filters.category.includes(category.id) &&
+							"font-bold bg-gray-100 rounded-lg w-full"
+						}`}
+						onClick={() =>
+							handleFilterChange("category", category.id)
+						}
+						key={category.id}
+					>
+						<span
+							className={`text-base text-gray-600 cursor-pointer `}
+							
+						>
+							{category.name}
+						</span>
+						<Image
+							src='/assets/svg/chevron_top.svg'
+							width={15}
+							height={10}
+							className='rotate-90 opacity-60'
+							alt='chevron-top'
+						/>
+					</div>
+				))}
+			</div>
 
-      <CollapsibleSection
-        title="Price"
-        isOpen={openSections.price}
-        onToggle={() => toggleSection("price")}
-      >
-        <RangeSlider
-          onChange={handlePriceChange}
-          min={properties?.priceRange.min}
-          max={properties?.priceRange.max}
-        />
-      </CollapsibleSection>
+			<div className='border-t border-gray-300 mt-2' />
 
-      <div className="border-t border-gray-300 mt-2" />
+			<CollapsibleSection
+				title='Price'
+				isOpen={openSections.price}
+				onToggle={() => toggleSection("price")}
+			>
+				<RangeSlider
+					onChange={handlePriceChange}
+					min={properties?.priceRange.min}
+					max={properties?.priceRange.max}
+				/>
+			</CollapsibleSection>
 
-      <CollapsibleSection
-        title="Colors"
-        isOpen={openSections.colors}
-        onToggle={() => toggleSection("colors")}
-      >
-        <div className="flex flex-wrap gap-3 mt-3">
-          {properties?.colors.map((color, index) => (
-            <ColorCircle
-              key={index}
-              color={color.code}
-              isSelected={filters.color === color.id}
-              onClick={() => handleFilterChange("color", color.id)}
-            />
-          ))}
-        </div>
-      </CollapsibleSection>
+			<div className='border-t border-gray-300 mt-2' />
 
-      <div className="border-t border-gray-300 mt-2" />
+			<CollapsibleSection
+				title='Colors'
+				isOpen={openSections.colors}
+				onToggle={() => toggleSection("colors")}
+			>
+				<div className='flex flex-wrap gap-3 mt-3'>
+					{properties?.colors.map((color, index) => (
+						<ColorCircle
+							key={index}
+							color={color.code}
+							isSelected={filters.color.includes(color.id)}
+							onClick={() =>
+								handleFilterChange("color", color.id)
+							}
+						/>
+					))}
+				</div>
+			</CollapsibleSection>
 
-      <CollapsibleSection
-        title="Size"
-        isOpen={openSections.size}
-        onToggle={() => toggleSection("size")}
-      >
-        <div className="flex gap-4 flex-wrap">
-          {properties?.sizes.map((size) => (
-            <SizeButton key={size.id} size={size.name}
-			isSelected={filters.size.includes(size.id)}
-			onClick={() => handleFilterChange("size", size.id)} />
-          ))}
-        </div>
-      </CollapsibleSection>
+			<div className='border-t border-gray-300 mt-2' />
 
-      <div className="border-t border-gray-300 mt-2" />
+			<CollapsibleSection
+				title='Size'
+				isOpen={openSections.size}
+				onToggle={() => toggleSection("size")}
+			>
+				<div className='flex gap-4 flex-wrap'>
+					{properties?.sizes.map((size) => (
+						<SizeButton
+							key={size.id}
+							size={size.name}
+							isSelected={filters.size.includes(size.id)}
+							onClick={() => handleFilterChange("size", size.id)}
+						/>
+					))}
+				</div>
+			</CollapsibleSection>
 
-      <CollapsibleSection
-        title="Dress Style"
-        isOpen={openSections.dressStyle}
-        onToggle={() => toggleSection("dressStyle")}
-      >
-        <div className="flex flex-col gap-2">
-          {properties?.styles.map((style) => (
-            <div className="flex justify-between items-center w-full" key={style.id}>
-              <span className="text-base text-gray-600">{style.name}</span>
-              <Image
-                src="/assets/svg/chevron_top.svg"
-                width={15}
-                height={10}
-                className="rotate-90 opacity-60"
-                alt="chevron-top"
-              />
-            </div>
-          ))}
-        </div>
-      </CollapsibleSection>
+			<div className='border-t border-gray-300 mt-2' />
 
-      <button
-        className="w-full bg-[#012f3f] text-white font-medium text-lg rounded-full py-3"
-        onClick={applyFilters}
-      >
-        Apply Filters
-      </button>
-    </div>
-  );
+			<CollapsibleSection
+				title='Dress Style'
+				isOpen={openSections.dressStyle}
+				onToggle={() => toggleSection("dressStyle")}
+			>
+				<div className='flex flex-col gap-2'>
+					{properties?.styles.map((style) => (
+						<div
+							className={`flex justify-between items-center w-full cursor-pointer py-2 px-1 ${
+								filters.style.includes(style.id)
+									? "font-bold bg-gray-100 rounded-lg w-full"
+									: ""
+							}`}
+							key={style.id}
+							onClick={() => handleFilterChange("style", style.id)}
+						>
+							<span className='text-base text-gray-600'>
+								{style.name}
+							</span>
+							<Image
+								src='/assets/svg/chevron_top.svg'
+								width={15}
+								height={10}
+								className='rotate-90 opacity-60'
+								alt='chevron-top'
+							/>
+						</div>
+					))}
+				</div>
+			</CollapsibleSection>
+
+			<button
+				className='w-full bg-[#012f3f] text-white font-medium text-lg rounded-full py-3'
+				onClick={applyFilters}
+			>
+				Apply Filters
+			</button>
+		</div>
+	);
 };
 
 export default FilterBar;

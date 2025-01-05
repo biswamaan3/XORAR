@@ -1,39 +1,54 @@
 "use client";
-import React, {useState} from "react";
+import {useProduct} from "@/components/providers/ProductContext";
+import React, {useEffect, useRef, useState} from "react";
 
 const FilterHeader = ({handleOpenFilter}) => {
-	const [sortBy, setSortBy] = useState("Most Popular");
+	const {title, sortBy, applyFilters, updateSortBy} = useProduct();
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
 	const sortingOptions = [
-		"Most Popular",
-		"Price: Low to High",
-		"Price: High to Low",
-		"Newest Arrivals",
+		{label: "Most Popular", value: "most_popular"},
+		{label: "Price: Low to High", value: "low_to_high"},
+		{label: "Price: High to Low", value: "high_to_low"},
+		{label: "Newest Arrivals", value: "recently_added"},
 	];
+	const previousSortBy = useRef(sortBy);
 
-	const handleSelect = (option) => {
-		setSortBy(option);
-		setIsDropdownOpen(false); // Close dropdown after selection
+	useEffect(() => {
+	  if (previousSortBy.current !== sortBy) {
+		applyFilters();
+		previousSortBy.current = sortBy; // Update the ref after applying filters
+	  }
+	}, [sortBy, applyFilters]);
+  
+	const handleSelect = (optionValue) => {
+	  if (sortBy !== optionValue) {
+		updateSortBy(optionValue);
+	  }
+	  setIsDropdownOpen(false);
 	};
+  
 
 	return (
 		<div className=' flex flex-col md:flex-row justify-between items-center'>
 			{/* Title */}
 			<span className='title flex justify-center md:justify-start items-center font-satoshi text-[32px] font-bold leading-[43px] text-[#000] z-[5]'>
-				Casual
+				{title.toUpperCase()}
 			</span>
 
 			<div className='w-full md:w-auto flex flex-row justify-between items-center gap-4 mt-4 md:mt-0'>
 				<span className='font-satoshi hidden md:block text-[16px] font-normal leading-[21.6px] text-[rgba(0,0,0,0.6)] relative text-left'>
 					Showing 1-10 of 100 Products{" "}
 				</span>
-				<button 
-                onClick={handleOpenFilter}
-                className='md:hidden  filter-btn flex items-center gap-2  text-black py-2 px-4 rounded-md hover:bg-gray-300'>
-                    <img src="/assets/svg/reviews-filter.svg" className="w-5 h-5" alt="" />
+				<button
+					onClick={handleOpenFilter}
+					className='md:hidden  filter-btn flex items-center gap-2  text-black py-2 px-4 rounded-md hover:bg-gray-300'
+				>
+					<img
+						src='/assets/svg/reviews-filter.svg'
+						className='w-5 h-5'
+						alt=''
+					/>
 					Filter
-
 				</button>
 
 				<div className='relative'>
@@ -45,7 +60,9 @@ const FilterHeader = ({handleOpenFilter}) => {
 							Sort by:{" "}
 						</span>
 						<span className='ml-2  font-satoshi text-[16px] font-medium leading-[21.6px] text-[#000] relative text-left'>
-							{sortBy}
+							{sortingOptions.find(
+								(option) => option.value === sortBy
+							)?.label || "Newest Arrivals"}
 						</span>
 						<svg
 							className={`ml-2 w-4 h-4 transition-transform ${
@@ -68,13 +85,13 @@ const FilterHeader = ({handleOpenFilter}) => {
 					{/* Dropdown Menu */}
 					{isDropdownOpen && (
 						<div className='absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10'>
-							{sortingOptions.map((option, index) => (
+							{sortingOptions.map((option) => (
 								<button
-									key={index}
-									onClick={() => handleSelect(option)}
+									key={option.value}
+									onClick={() => handleSelect(option.value)}
 									className='block w-full px-4 py-2 text-left text-sm hover:bg-gray-100'
 								>
-									{option}
+									{option.label}
 								</button>
 							))}
 						</div>

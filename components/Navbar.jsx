@@ -1,8 +1,7 @@
 import React from "react";
 import {CiHeart, CiSearch} from "react-icons/ci";
-import {MdKeyboardArrowDown} from "react-icons/md";
+
 import Link from "next/link";
-import Image from "next/image";
 import "@/styles/Navbar.css";
 import ShopDropDown from "./ShopDropDown";
 import NavbarButtons from "./NavbarButtons";

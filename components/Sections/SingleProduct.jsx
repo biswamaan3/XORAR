@@ -19,11 +19,11 @@ function SingleProduct({
 <div className="w-auto block mx-auto" {...props}>
   <Link href={link}>
     {/* Product Image */}
-    <div className="relative max-w-[295px] max-h-[298px] bg-[#f0eeed] z-8 overflow-hidden rounded-2xl">
+    <div className="relative flex items-center justify-center max-w-[295px]  min-w-[221px] min-h-[223px]  max-h-[298px] bg-[#f0eeed] z-8 overflow-hidden rounded-2xl">
       <img
         src={img}
         alt="tshirt image"
-        className="object-cover w-full h-full"
+        className="object-contain w-full h-full"
       />
     </div>
 

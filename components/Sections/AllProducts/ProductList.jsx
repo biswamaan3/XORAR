@@ -4,6 +4,8 @@ import FilterBar from "./FilterBar";
 import FilterHeader from "./FilterHeader";
 import SingleProduct from "../SingleProduct";
 import Pagination from "./Pagination";
+import {useProduct} from "@/components/providers/ProductContext";
+import SingleProductSkeleton from "@/components/loaders/SingleProductSkeleton";
 
 function ProductList({category}) {
 	const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -11,9 +13,9 @@ function ProductList({category}) {
 	const toggleFilterModal = () => {
 		setIsFilterOpen(!isFilterOpen);
 	};
-
-	
-
+	const {products, loading} = useProduct();
+	const productsPerPage = 12;
+	const totalPages = Math.ceil(products.length / productsPerPage);
 	return (
 		<div>
 			<div className='grid grid-cols-1 lg:grid-cols-9 gap-5 mt-10'>
@@ -26,18 +28,30 @@ function ProductList({category}) {
 
 					<div className='mt-10 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10'>
 						{/* Products */}
-						{[...Array(12)].map((_, index) => (
-							<SingleProduct
-								key={index}
-								img={`/assets/img/products/tshirt${1}.png`}
-								title='T-SHIRT'
-								price='120'
-								ratings='4.5'
-								link={`/shop/t-shirt/${index + 1}`}
-							/>
-						))}
+						{loading ? (
+							[...Array(8)].map((_, index) => (
+								<SingleProductSkeleton key={index} />
+							))
+						) : products.length < 1 ? (
+							<div className='text-center text-lg font-satoshi'>
+								No products found.
+							</div>
+						) : (
+							products.map((item) => (
+								<SingleProduct
+									key={item.id} // Use unique key like item.id
+									img={item.thumbnail}
+									title={item?.title}
+									price={item?.price || "120"} // Use dynamic price if available
+									ratings={item?.averageRating || "4.5"} // Dynamically handle ratings
+									link={`/shop/${item.category.name}/${item.slug}`} // Assuming the product has an `id`
+								/>
+							))
+						)}
 					</div>
-					<Pagination />
+					{products.length > 0 && (
+						<Pagination totalPages={totalPages} />
+					)}
 				</div>
 			</div>
 

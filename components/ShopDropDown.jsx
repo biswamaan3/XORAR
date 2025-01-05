@@ -21,16 +21,16 @@ export default function Dropdown() {
 			{isOpen && (
 				<div
 					onClick={handleDropdown}
-					className='absolute bg-white shadow-md rounded-lg mt-32 py-2 w-40 border border-gray-300 '
+					className='absolute bg-white shadow-md rounded-lg mt-32 dropdown-menu py-2 w-40 z-[9999] border border-gray-300 '
 				>
 					<Link
-						href='/t-shirts'
+						href='/product/all?category=t-shirt'
 						className='block px-4 py-2 text-black text-sm hover:bg-gray-100'
 					>
 						T-shirts
 					</Link>
 					<Link
-						href='/hoodies'
+						href='/product/all?category=hoodies'
 						className='block px-4 py-2 text-black text-sm hover:bg-gray-100'
 					>
 						Hoodies

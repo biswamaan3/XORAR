@@ -40,9 +40,9 @@ function FavouriteSection() {
 					<SingleProduct
 						img={product.thumbnail}
 						title={product.title}
-						ratings={product.ratings}
+						ratings={product.rating || 4.5}
 						priceShow={false}
-						link={`/shop/products/${product.id}`}
+						link={`/shop/products/${product?.slug}`}
 						key={index}
 						moveToCart
 						onClick={() => moveToCartBtn(product)}
