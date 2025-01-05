@@ -22,7 +22,7 @@ function CheckOutCart() {
 		pinCode: "",
 		landmark: "",
 	});
-
+	const [errors, setErrors] = useState({});
 	useEffect(() => {
 		const items = JSON.parse(localStorage.getItem("cart")) || [];
 		setCartItems(items);
@@ -53,17 +53,27 @@ function CheckOutCart() {
 		requiredFields.forEach((field) => {
 			if (!formData[field]) {
 				newErrors[field] = `${field} is required`;
+				toast.error(`${field.toUpperCase()} is required`, {
+					position: "bottom-right",
+				});
 			}
 		});
 
 		// Email validation
 		if (formData.email && !/\S+@\S+\.\S+/.test(formData.email)) {
 			newErrors.email = "Please enter a valid email address";
+			toast.error("Please enter a valid email address",{
+				position: "bottom-right",
+			});
+			
 		}
 
 		// Phone number validation
 		if (formData.phone && !/^\d{10}$/.test(formData.phone)) {
 			newErrors.phone = "Please enter a valid phone number";
+			toast.error("Please enter a valid phone number",{
+				position: "bottom-right",
+			});
 		}
 
 		setErrors(newErrors);
@@ -72,13 +82,18 @@ function CheckOutCart() {
 
 	// Handle form submission (Proceed to payment)
 	const handleSubmit = () => {
-		if (validateForm()) {
-			localStorage.setItem("formData", JSON.stringify(formData));
-			toast.success("Form submitted successfully!");
-			// Proceed to payment logic
-		} else {
-			toast.error("Please fill all required fields correctly.");
+		try {
+			if (validateForm()) {
+				localStorage.setItem("formData", JSON.stringify(formData));
+				toast.success("Form submitted successfully!");
+				// Proceed to payment logic
+			} 
+		} catch (error) {
+			console.error(error);
+			
 		}
+		
+
 	};
 
 	const handleRemoveItem = (id) => {
@@ -107,7 +122,7 @@ function CheckOutCart() {
 								htmlFor='name'
 								className='mb-2 block text-sm font-medium text-gray-900 dark:text-white'
 							>
-								Your name
+								Your name *
 							</label>
 							<input
 								type='text'
@@ -242,7 +257,7 @@ function CheckOutCart() {
 								htmlFor='pincode'
 								className='mb-2 block text-sm font-medium text-gray-900 dark:text-white'
 							>
-								Pin Code
+								Pin Code *
 							</label>
 							<input
 								type='text'
@@ -271,13 +286,14 @@ function CheckOutCart() {
 								onChange={handleInputChange}
 								className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500'
 								placeholder='e.g. Near XYZ'
-								required
+								
 							/>
 						</div>
 					</div>
 					<div>
 						<button
-							type='button'
+							type='submit'
+							onClick={handleSubmit}
 							disabled={cartItems.length === 0}
 							className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4
                     w-full flex items-center gap-3 justify-center mt-8

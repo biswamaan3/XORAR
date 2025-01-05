@@ -42,7 +42,7 @@ export const ProductsProvider = ({children, properties}) => {
 		const styleParam = params.get("style");
 		const titleParam =
 			params.get("title") ||
-			categoryParam.split(",")[0] ||
+			categoryParam?.split(",")[0] ||
 			"All Products";
 		if (titleParam) {
 			setTitle(titleParam);
@@ -50,7 +50,6 @@ export const ProductsProvider = ({children, properties}) => {
 
 		let updatedFilters = {...filters};
 
-		// Category mapping
 		if (categoryParam) {
 			const categories = categoryParam.toLowerCase().split(","); // Corrected here
 			const categoryIds = categories

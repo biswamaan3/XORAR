@@ -1,5 +1,6 @@
 import React from "react";
 import "@/styles/Hero.min.css";
+import Link from "next/link";
 
 function Hero() {
 	return (
@@ -19,9 +20,9 @@ function Hero() {
 					lifestyle, <br className='hidden md:block' />
 					offering both comfort and an effortlessly stylish edge.
 				</span>
-				<button className='frame-9'>
+				<Link href={"/product/all"} className='frame-9'>
 					<span className='shop-now'>Shop Now</span>
-				</button>
+				</Link>
 				<div className='frame-a'>
 					<div className='frame-b'>
 						<span className='plus-200'>200+</span>
