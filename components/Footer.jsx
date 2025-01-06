@@ -3,7 +3,6 @@ import React from "react";
 import { LiaFacebookF, LiaInstagram, LiaReddit, LiaTwitter } from "react-icons/lia";
 import { MdOutlineMail } from "react-icons/md";
 
-// Social Icon Component
 const SocialIcon = ({ href, icon: Icon }) => (
   <Link href={href} target="_blank">
     <Icon className="border-1 text-[24px] border-1 p-1 border-gray-100 bg-white hover:bg-gray-900 hover:border-gray-700
@@ -66,8 +65,8 @@ export default function Footer() {
       links: [
         { name: "Customer Support", href: "/support" },
         { name: "Delivery Details", href: "/delivery" },
-        { name: "Terms & Conditions", href: "/terms" },
-        { name: "Privacy Policy", href: "/privacy" },
+        { name: "Terms & Conditions", href: "/terms-and-conditions" },
+        { name: "Privacy Policy", href: "/privacy-policy" },
       ],
     },
     {
@@ -79,15 +78,7 @@ export default function Footer() {
         { name: "Payments", href: "/payments" },
       ],
     },
-    {
-      title: "Resources",
-      links: [
-        { name: "Free eBooks", href: "/ebooks" },
-        { name: "Development Tutorial", href: "/tutorial" },
-        { name: "How to - Blog", href: "/blog" },
-        { name: "YouTube Playlist", href: "/youtube" },
-      ],
-    },
+
   ];
 
   return (
@@ -141,7 +132,7 @@ export default function Footer() {
         <div className="mt-10 mx-auto w-[90%] md:max-w-[1240px] border-t border-gray-300 pt-4 text-center">
           <div className="flex flex-wrap justify-between items-center">
             <p className="satoshi font-[14px] opacity-60">
-              Xorar © 2000-2021, All rights reserved
+              Xorar © 2025, All rights reserved
             </p>
             <img src="/assets/img/card.png" className="" alt="Footer Image" />
           </div>
