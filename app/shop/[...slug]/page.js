@@ -10,27 +10,29 @@ async function getPost(slug) {
 		`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/external/product/one?slug=${slug}`
 	);
 	const post = await res.json();
-	if (!post || !post.product) notFound(); // Handle cases where no product is found
-	return post.product;
+	if (!post || !post.product) notFound(); 
+	console.log(post)	
+	return post;
 }
 
 export async function generateMetadata({ params }) {
 	const slug = (await params).slug[(await params).slug.length - 1]; 
 	const post = await getPost(slug); // Fetch product based on the slug
 	return {
-		title: post.title, // Use the product title for metadata
+		title: post.product.title, // Use the product title for metadata
 	};
 }
 
 async function page({ params }) {
 	const slug = (await params).slug[(params).slug.length - 1]; 
-	const data = await getPost(slug); 
+	const data = await getPost(slug);
+	console.log(data) 
 	return (
 		<div className="container w-[90%] mx-auto">
 			<Breadcrumb />
-			<ProductComp product={data} /> 
-			<ProductReviews />
-			<RecommendedProducts />
+			<ProductComp product={data.product} /> 
+			<ProductReviews ratings={data.ratings} />
+			<RecommendedProducts recommendation={data.recommendedProducts} />
 		</div>
 	);
 }

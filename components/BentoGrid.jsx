@@ -1,5 +1,6 @@
 import React from "react";
 import "@/styles/BentoGrid.min.css";
+import Link from "next/link";
 
 function BentoGrid() {
 	return (
@@ -12,7 +13,8 @@ function BentoGrid() {
 					{/* Grid Layout */}
 					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 py-8 px-6 '>
 						{/* Card 1 */}
-						<div
+						<Link 
+							href="/product/all?style=casual"
 							className='col-span-1 md:col-span-1 lg:col-span-5 relative bg-cover bg-no-repeat rounded-xl'
 							style={{
 								backgroundImage: "url('/assets/img/products/man1.png')", 
@@ -27,10 +29,11 @@ function BentoGrid() {
 									Casual <br /> Tshirts
 								</h3>
 							</div>
-						</div>
+						</Link>
 
 						{/* Card 2 */}
-						<div
+						<Link 
+							href="/product/all?style=formal"
 							className='col-span-1 md:col-span-1 lg:col-span-7 relative bg-cover bg-no-repeat rounded-xl'
 							style={{
 								backgroundColor: "white",
@@ -46,10 +49,11 @@ function BentoGrid() {
 									Formal <br /> Tshirts
 								</h3>
 							</div>
-						</div>
+						</Link>
 
 						{/* Card 3 */}
-						<div
+						<Link 
+						 	href={"/product/all?style=anime"}
 							className='col-span-1 md:col-span-1 lg:col-span-7 relative bg-cover bg-no-repeat rounded-xl'
 							style={{
 								backgroundColor: "white",
@@ -65,10 +69,11 @@ function BentoGrid() {
 									Anime <br /> Tshirts
 								</h3>
 							</div>
-						</div>
+						</Link>
 
 						{/* Card 4 */}
-						<div
+						<Link
+							href={"/product/all?category=hoodies"}
 							className='col-span-1 md:col-span-1 lg:col-span-5 relative bg-cover bg-no-repeat rounded-xl'
 							style={{
 								backgroundColor: "white",
@@ -82,7 +87,7 @@ function BentoGrid() {
 								{/* Title on top of the image */}
 								<h3 className='title-bento'>Hoodies</h3>
 							</div>
-						</div>
+						</Link>
 					</div>
 				</div>
 			</div>

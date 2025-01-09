@@ -23,10 +23,20 @@ function HeartIconWithTooltip({onClick, isInWishlist}) {
 }
 
 export default function ProductDescription({product}) {
-	const [selectedSize, setSelectedSize] = useState(null);
+	const hasSizes = product.sizes && product.sizes.length > 0;
+	const hasColors = product.colors && product.colors.length > 0;
+	const hasDesigns = product.designs && product.designs.length > 0;
 	const [quantity, setQuantity] = useState(1);
-	const [selectedColor, setSelectedColor] = useState(null);
-	const [selectedDesign, setSelectedDesign] = useState(null);
+
+	const [selectedSize, setSelectedSize] = useState(
+		hasSizes ? product.sizes[0]?.name : null
+	);
+	const [selectedColor, setSelectedColor] = useState(
+		hasColors ? product.colors[0]?.id : null
+	);
+	const [selectedDesign, setSelectedDesign] = useState(
+		hasDesigns ? product.designs[0]?.id : null
+	);
 
 	const [cart, setCart] = useState(
 		JSON.parse(localStorage?.getItem("cart")) || []
@@ -45,30 +55,23 @@ export default function ProductDescription({product}) {
 			setSelectedDesign(existingProduct?.design);
 		}
 	}, [cart, product.id]);
+	useEffect(() => {
+		if (product) {
+			if (!selectedSize && product.sizes?.length > 0) {
+				setSelectedSize(product.sizes[0]?.name);
+			}
+
+			if (!selectedColor && product.colors?.length > 0) {
+				setSelectedColor(product.colors[0]?.id);
+			}
+
+			if (!selectedDesign && product.designs?.length > 0) {
+				setSelectedDesign(product.designs[0]?.id);
+			}
+		}
+	}, [product, selectedSize, selectedColor, selectedDesign]);
 	const {handleAddToCart, handleAddToWishlist} = useAppProvider();
 	const handleAddToWishlistBtn = async () => {
-		if (
-			!selectedSize ||
-			!selectedColor ||
-			(product.design && !selectedDesign)
-		) {
-			toast.error(
-				"Please select size, color, and design before adding to cart!",
-				{
-					position: "top-center",
-					autoClose: 5000,
-					hideProgressBar: false,
-					closeOnClick: false,
-					pauseOnHover: true,
-					draggable: true,
-					progress: undefined,
-					theme: "colored",
-					transition: Bounce,
-				}
-			);
-			return;
-		}
-
 		await handleAddToWishlist({
 			id: product.id,
 			title: product.title,
@@ -89,28 +92,6 @@ export default function ProductDescription({product}) {
 	};
 
 	const handleAddToCartButton = async () => {
-		if (
-			!selectedSize ||
-			!selectedColor ||
-			(product.design && !selectedDesign)
-		) {
-			toast.error(
-				"Please select size, color, and design before adding to cart!",
-				{
-					position: "top-center",
-					autoClose: 5000,
-					hideProgressBar: false,
-					closeOnClick: false,
-					pauseOnHover: true,
-					draggable: true,
-					progress: undefined,
-					theme: "colored",
-					transition: Bounce,
-				}
-			);
-			return;
-		}
-
 		handleAddToCart({
 			id: product.id,
 			title: product.title,
@@ -174,16 +155,19 @@ export default function ProductDescription({product}) {
 			<Separator className='my-5' />
 
 			<ProductOption
+				hasColors={hasColors}
+				hasDesigns={hasDesigns}
 				colors={product.colors}
 				selectedColor={selectedColor}
 				setSelectedColor={setSelectedColor}
-				design={product.designs}
+				designs={product.designs}
 				selectedDesign={selectedDesign}
 				setSelectedDesign={setSelectedDesign}
 			/>
-			<Separator className='my-5' />
+			
 
 			<ProductActions
+			hasSizes={hasSizes}
 				size={product.sizes}
 				selectedSize={selectedSize}
 				setSelectedSize={setSelectedSize}

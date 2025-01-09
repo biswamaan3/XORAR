@@ -5,6 +5,7 @@ import {ProductDesc, Separator} from "../../misc/Text";
 import {QuantityButton} from "@/components/misc/Buttons";
 
 export default function ProductActions({
+	hasSizes,
 	size,
 	selectedSize,
 	setSelectedSize,
@@ -25,18 +26,23 @@ export default function ProductActions({
 
 	return (
 		<div className='w-full'>
-			<ProductDesc>Choose Size</ProductDesc>
-			<div className='flex gap-4 flex-wrap justify-start'>
-				{size?.map((sizeOp, index) => (
-					<SizeButton
-						key={index}
-						size={sizeOp.name}
-						isSelected={selectedSize === sizeOp.name}
-						onClick={() => setSelectedSize(sizeOp.name)}
-					/>
-				))}
-			</div>
-			<Separator className='my-5' />
+			{hasSizes && (
+				<>
+					<ProductDesc>Choose Size</ProductDesc>
+					<div className='flex gap-4 flex-wrap justify-start'>
+						{size?.map((sizeOp, index) => (
+							<SizeButton
+								key={index}
+								size={sizeOp.name}
+								isSelected={selectedSize === sizeOp.name}
+								onClick={() => setSelectedSize(sizeOp.name)}
+							/>
+						))}
+					</div>
+					<Separator className='my-5' />
+				</>
+			)}
+
 			<div className='flex flex-wrap gap-5 justify-between items-center'>
 				<div className='flex gap-4 w-full '>
 					<div className='flex-1 basis-2/5'>
@@ -45,7 +51,7 @@ export default function ProductActions({
 							onChange={handleQuantity}
 						/>
 					</div>
-					
+
 					<div className='flex-1 basis-4/5'>
 						<button
 							className={`w-full bg-[#012f3f] text-white font-medium text-lg rounded-full py-3 ${
