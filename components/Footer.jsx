@@ -7,6 +7,7 @@ import {
 	LiaTwitter,
 } from "react-icons/lia";
 import {MdOutlineMail} from "react-icons/md";
+import {FaLocationDot, FaPhone} from "react-icons/fa6";
 
 const SocialIcon = ({href, icon: Icon}) => (
 	<Link href={href} target='_blank'>
@@ -57,48 +58,37 @@ const NewsletterSubscription = () => (
 		</button>
 	</div>
 );
+const footerSections = [
+	{
+		title: "Company",
+		links: [
+			{name: "About", href: "/about-us"},
+			{name: "Contact us", href: "/contact-us"},
+	
+		],
+	},
+	{
+		title: "Help",
+		links: [
+			{name: "Delivery Details", href: "/shipping-policy"},
+			{name: "Terms & Conditions", href: "/terms-and-conditions"},
+			{name: "Privacy Policy", href: "/privacy-policy"},
+			{name: "Return & Refund Policy", href: "/return-and-refund"},
+			{
+				name: "Cancellation & Rescheduling Policy",
+				href: "/cancellation-and-rescheduling",
+			},
+		],
+	},
+];
 
 export default function Footer() {
-	const footerSections = [
-		{
-			title: "Company",
-			links: [
-				{name: "About", href: "/about"},
-				{name: "Features", href: "/features"},
-				{name: "Works", href: "/works"},
-				{name: "Career", href: "/career"},
-			],
-		},
-		{
-			title: "Help",
-			links: [
-				{name: "Delivery Details", href: "/shipping-policy"},
-				{name: "Terms & Conditions", href: "/terms-and-conditions"},
-				{name: "Privacy Policy", href: "/privacy-policy"},
-				{name: "Return & Refund Policy", href: "/return-and-refund"},
-				{
-					name: "Cancellation & Rescheduling Policy",
-					href: "/cancellation-and-rescheduling",
-				},
-			],
-		},
-		{
-			title: "FAQ",
-			links: [
-				{name: "Account", href: "/account"},
-				{name: "Customer Support", href: "/support"},
-				{name: "Orders", href: "/orders"},
-				{name: "Payments", href: "/payments"},
-			],
-		},
-	];
-
 	return (
 		<div className='max-w-full mx-auto relative'>
 			{/* Top Section */}
 			<div
 				className='bg-gradient flex flex-wrap w-full max-w-[80%] md:max-w-[1240px] h-auto p-6 px-10 md:p-10 justify-between items-center 
-          rounded-[20px] mx-auto mt-6 md:mt-10 relative z-[4]'
+					rounded-[20px] mx-auto mt-6 md:mt-10 relative z-[4]'
 				style={{
 					transform: "translateY(50%)",
 				}}
@@ -113,7 +103,7 @@ export default function Footer() {
 			<div className='w-full bg-[#F0F0F0] py-10'>
 				<div className='flex flex-wrap max-w-[90%] md:max-w-[1240px] mx-auto justify-between gap-10 mt-[100px]'>
 					{/* Brand Section */}
-					<div className='flex flex-col gap-4 w-full justify-between sm:w-[40%] md:w-[25%]'>
+					<div className='flex flex-col gap-4 w-full sm:w-[40%] md:w-[25%]'>
 						<div className='flex items-center gap-2'>
 							<div
 								className='w-8 h-8 bg-no-repeat'
@@ -145,6 +135,33 @@ export default function Footer() {
 							links={section.links}
 						/>
 					))}
+
+					{/* Contact Us Section */}
+					<div className='flex flex-col gap-4 w-[48%] sm:w-auto'>
+						<span className='uppercase text-sm font-medium text-black'>
+							React Us At
+						</span>
+						<ul className='text-sm text-gray-600 space-y-3'>
+							<li className="flex items-start gap-2"
+							
+							>
+								<FaLocationDot className="text-[16px] mt-2 text-gray-600" />
+								Block ED,Rajdanga Main Road, Near Acropolis
+								<br/>
+								Mall, Kasba, Kolkata - 700107, West Bengal
+							</li>
+							<li className="flex items-start gap-2">
+								<FaPhone className="text-[16px] text-gray-600" />
+								 +91 9163917808 
+							</li>
+							<li className="flex items-start gap-2">
+								<MdOutlineMail className="text-[16px] mt-1  text-gray-600" />
+								<Link href='mailto:support@xorar.com'>
+								support@xorar.com
+								</Link>
+							</li>
+						</ul>
+					</div>
 				</div>
 
 				{/* Footer */}
@@ -155,8 +172,8 @@ export default function Footer() {
 						</p>
 						<img
 							src='/assets/img/card.png'
-							className=''
 							alt='Footer Image'
+							className=''
 						/>
 					</div>
 				</div>
