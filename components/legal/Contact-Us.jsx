@@ -8,6 +8,9 @@ import {
 	FaFacebook,
 } from "react-icons/fa";
 import {FiClock} from "react-icons/fi";
+const calculateTotalPrice = (items) => {
+	return items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+};
 
 const ContactUs = () => {
 	return (

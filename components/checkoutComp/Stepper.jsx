@@ -1,30 +1,60 @@
+"use client"
 import React from "react";
+import { FaThumbsUp } from "react-icons/fa6";
+import { MdOutlinePayment } from "react-icons/md";
+import { BiMessageSquareDetail } from "react-icons/bi";
+import { useCheckout } from "../providers/CheckoutProvider";
 
-function Stepper({stepper}) {
-	return (
-		<ol className='flex items-center w-full text-sm font-medium text-center text-gray-500 dark:text-gray-400 sm:text-base'>
-			<li className="flex md:w-full items-center text-blue-600 dark:text-blue-500 sm:after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
-				<span className="flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
-					<svg
-						className='w-3.5 h-3.5 sm:w-4 sm:h-4 me-2.5'
-						aria-hidden='true'
-						xmlns='http://www.w3.org/2000/svg'
-						fill='currentColor'
-						viewBox='0 0 20 20'
-					>
-						<path d='M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z' />
-					</svg>
-					Order Details
-				</span>
-			</li>
-			<li className="flex md:w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
-				<span className="flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
-					<span className='me-2'>2</span>
-					Payment
-				</span>
-			</li>
-		</ol>
-	);
+function Stepper() {
+  const { step } = useCheckout();
+
+  const getStepClasses = (currentStep) => {
+    if (step > currentStep) {
+      return "text-green-500 dark:text-green-400"; // Completed step
+    }
+    if (step === currentStep) {
+      return "text-blue-600 dark:text-blue-500"; // Active step
+    }
+    return "text-gray-500 dark:text-gray-400"; // Inactive step
+  };
+
+  return (
+<ol className="overflow-x-scroll hide-scrollbar flex  flex-row md:w-4/5 items-center justify-between w-full px-2 sm:px-6 mx-auto mt-4 text-sm 
+font-medium md:text-center sm:text-base">
+  {/* Step 1: Delivery Details */}
+  <li
+    className={`flex flex-col sm:flex-row items-center md:w-full sm:after:w-full sm:after:h-1 sm:after:border-b sm:after:border-gray-200 sm:after:mx-4 xl:after:mx-6 dark:sm:after:border-gray-700 ${getStepClasses(
+      1
+    )}`}
+  >
+    <span className="flex items-center">
+      <BiMessageSquareDetail className="w-6 h-6 sm:w-8 sm:h-8 me-2" />
+      <span className="whitespace-normal break-words">Delivery Details</span>
+    </span>
+  </li>
+
+  {/* Step 2: Payment */}
+  <li
+    className={`flex flex-col sm:flex-row items-center md:w-full sm:after:w-full sm:after:h-1 sm:after:border-b sm:after:border-gray-200 sm:after:mx-4 xl:after:mx-6 dark:sm:after:border-gray-700 ${getStepClasses(
+      2
+    )}`}
+  >
+    <span className="flex items-center">
+      <MdOutlinePayment className="w-6 h-6 sm:w-8 sm:h-8 me-2" />
+      <span className="whitespace-normal break-words">Payment</span>
+    </span>
+  </li>
+
+  {/* Step 3: Order Confirmation */}
+  <li className={`flex flex-col sm:flex-row items-center ${getStepClasses(3)}`}>
+    <span className="flex items-center">
+      <FaThumbsUp className="w-6 h-6 sm:w-8 sm:h-8 me-2" />
+      <span className="whitespace-normal break-words">Order Confirmation</span>
+    </span>
+  </li>
+</ol>
+
+  );
 }
 
 export default Stepper;

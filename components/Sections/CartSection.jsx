@@ -33,6 +33,8 @@ function CartSection() {
 		localStorage.setItem("cart", JSON.stringify(updatedCart));
 		setCartItems(updatedCart);
 	};
+	const deliveryFee = cartItems.length > 0 ? 200 : 0;
+	const totalPrice  = calculateTotalPrice(cartItems)+ deliveryFee;
 
 	return (
 		<>
@@ -46,8 +48,8 @@ function CartSection() {
 				/>
 				<CartPricing
 					cartItems={cartItems}
-					totalPrice={calculateTotalPrice(cartItems).toFixed(2)}
-					deliveryFee={200}
+					totalPrice={totalPrice}
+					deliveryFee={deliveryFee}
 				/>
 			</div>
 		</>

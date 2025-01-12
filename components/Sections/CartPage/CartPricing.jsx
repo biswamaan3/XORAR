@@ -10,11 +10,9 @@ export default function CartPricing({
 	at,
 	...props
 }) {
-	// Ensure totalPrice is 0 if no items are in the cart
-	const validTotalPrice = props?.cartItems?.length > 0 ? totalPrice : 0;
-
+	const subtotalValue = props.cartItems.reduce( (acc, item) => acc + item.price * item.quantity, 0);
 	return (
-		<div className='cart-pricing-container flex flex-col gap-6 p-6 rounded-[20px] border border-[rgba(0,0,0,0.1)] mx-auto w-full'>
+		<div className=' flex flex-col gap-6 p-6 rounded-[20px] border border-[rgba(0,0,0,0.1)] mx-auto w-full'>
 			{at === "CheckoutForm" && (
 				<CartItems
 					cartItems={props.cartItems}
@@ -34,8 +32,7 @@ export default function CartPricing({
 						Subtotal
 					</span>
 					<span className='text-lg font-bold text-black'>
-						{process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}{" "}
-						{validTotalPrice}
+						{process.env.NEXT_PUBLIC_CURRENCY_SYMBOL} {subtotalValue}
 					</span>
 				</div>
 
@@ -55,8 +52,7 @@ export default function CartPricing({
 						Delivery Fee
 					</span>
 					<span className='text-lg font-bold text-black'>
-						{process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}{" "}
-						{validTotalPrice > 0 ? deliveryFee : 0}
+						{process.env.NEXT_PUBLIC_CURRENCY_SYMBOL} {subtotalValue > 0 ? deliveryFee : 0}
 					</span>
 				</div>
 
@@ -68,8 +64,7 @@ export default function CartPricing({
 					</span>
 					<span className='text-2xl font-bold text-black'>
 						{process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}{" "}
-						{parseFloat(validTotalPrice, 10) +
-							(validTotalPrice > 0 ? deliveryFee : 0)}
+						{parseFloat(totalPrice, 10)}
 					</span>
 				</div>
 			</div>

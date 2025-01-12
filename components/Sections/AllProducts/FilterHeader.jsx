@@ -3,7 +3,14 @@ import {useProduct} from "@/components/providers/ProductContext";
 import React, {useEffect, useRef, useState} from "react";
 
 const FilterHeader = ({handleOpenFilter}) => {
-	const {title, sortBy, applyFilters, updateSortBy} = useProduct();
+	const {
+		title,
+		sortBy,
+		applyFilters,
+		updateSortBy,
+		totalProducts,
+		totalProductsShown,
+	} = useProduct();
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 	const sortingOptions = [
 		{label: "Most Popular", value: "most_popular"},
@@ -14,19 +21,18 @@ const FilterHeader = ({handleOpenFilter}) => {
 	const previousSortBy = useRef(sortBy);
 
 	useEffect(() => {
-	  if (previousSortBy.current !== sortBy) {
-		applyFilters();
-		previousSortBy.current = sortBy; // Update the ref after applying filters
-	  }
+		if (previousSortBy.current !== sortBy) {
+			applyFilters();
+			previousSortBy.current = sortBy;
+		}
 	}, [sortBy, applyFilters]);
-  
+
 	const handleSelect = (optionValue) => {
-	  if (sortBy !== optionValue) {
-		updateSortBy(optionValue);
-	  }
-	  setIsDropdownOpen(false);
+		if (sortBy !== optionValue) {
+			updateSortBy(optionValue);
+		}
+		setIsDropdownOpen(false);
 	};
-  
 
 	return (
 		<div className=' flex flex-col md:flex-row justify-between items-center'>
@@ -37,7 +43,7 @@ const FilterHeader = ({handleOpenFilter}) => {
 
 			<div className='w-full md:w-auto flex flex-row justify-between items-center gap-4 mt-4 md:mt-0'>
 				<span className='font-satoshi hidden md:block text-[16px] font-normal leading-[21.6px] text-[rgba(0,0,0,0.6)] relative text-left'>
-					Showing 1-10 of 100 Products{" "}
+					Showing {totalProductsShown} of {totalProducts} Products{" "}
 				</span>
 				<button
 					onClick={handleOpenFilter}

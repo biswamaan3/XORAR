@@ -18,10 +18,11 @@ export const ProductsProvider = ({children, properties}) => {
 	const [loading, setLoading] = useState(false);
 	const [title, setTitle] = useState("All Products");
 	const [sortBy, setSortBy] = useState("recently_added");
+	const [totalProducts, setTotalProducts] = useState(0);
+	const [totalProductsShown, setTotalProductsShown] = useState(0);
 	const updateSortBy = (value) => {
 		setSortBy(value);
-		
-	}
+	};
 	const updateFilters = (type, value) => {
 		setFilters((prev) => {
 			if (type === "priceRange") {
@@ -174,7 +175,7 @@ export const ProductsProvider = ({children, properties}) => {
 				headers: {
 					"Content-Type": "application/json",
 				},
-				body: JSON.stringify(filterPayload), // Ensure the body is stringified
+				body: JSON.stringify(filterPayload),
 			});
 
 			if (!response.ok) {
@@ -182,7 +183,8 @@ export const ProductsProvider = ({children, properties}) => {
 			}
 
 			const data = await response.json();
-
+			setTotalProducts(data.data.totalProducts);
+			setTotalProductsShown((prev) => prev + data?.data?.products?.length);
 			setProducts(data.data.products || []);
 		} catch (error) {
 			console.error("Error fetching products:", error);
@@ -203,6 +205,8 @@ export const ProductsProvider = ({children, properties}) => {
 				title,
 				sortBy,
 				updateSortBy,
+				totalProducts,
+				totalProductsShown
 			}}
 		>
 			{children}

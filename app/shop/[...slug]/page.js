@@ -11,13 +11,12 @@ async function getPost(slug) {
 	);
 	const post = await res.json();
 	if (!post || !post.product) notFound(); 
-	console.log(post)	
 	return post;
 }
 
 export async function generateMetadata({ params }) {
 	const slug = (await params).slug[(await params).slug.length - 1]; 
-	const post = await getPost(slug); // Fetch product based on the slug
+	const post = await getPost(slug); 
 	return {
 		title: post.product.title, // Use the product title for metadata
 	};
@@ -26,7 +25,6 @@ export async function generateMetadata({ params }) {
 async function page({ params }) {
 	const slug = (await params).slug[(params).slug.length - 1]; 
 	const data = await getPost(slug);
-	console.log(data) 
 	return (
 		<div className="container w-[90%] mx-auto">
 			<Breadcrumb />

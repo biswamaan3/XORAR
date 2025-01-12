@@ -130,6 +130,11 @@ export const AppProvider = ({children}) => {
 		}
 	};
 
+	const handleRemoveCart = ()=>{
+		localStorage.removeItem("cart");
+		setTotalSaved((prev) => ({...prev, cart: 0}));
+	}
+
 	const handleAddToWishlist = async (data) => {
 		const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
 		const index = wishlist.findIndex((item) => item.id === data.id);
@@ -188,6 +193,7 @@ export const AppProvider = ({children}) => {
 				updateWishlist,
 				handleAddToCart,
 				handleAddToWishlist,
+				handleRemoveCart
 			}}
 		>
 			{children}

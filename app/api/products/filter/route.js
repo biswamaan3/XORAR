@@ -3,7 +3,6 @@ export async function POST(req) {
       // Parse the incoming request body
       const filters = await req.json();
   
-      console.log("Filters received:", filters);
   
       // Forward the filters to the external API
       const externalResponse = await fetch(
