@@ -10,12 +10,12 @@ function Stepper() {
 
   const getStepClasses = (currentStep) => {
     if (step > currentStep) {
-      return "text-green-500 dark:text-green-400"; // Completed step
+      return "text-green-500 "; // Completed step
     }
     if (step === currentStep) {
-      return "text-blue-600 dark:text-blue-500"; // Active step
+      return "text-blue-600 "; // Active step
     }
-    return "text-gray-500 dark:text-gray-400"; // Inactive step
+    return "text-gray-500 "; // Inactive step
   };
 
   return (
@@ -23,7 +23,7 @@ function Stepper() {
 font-medium md:text-center sm:text-base">
   {/* Step 1: Delivery Details */}
   <li
-    className={`flex flex-col sm:flex-row items-center md:w-full sm:after:w-full sm:after:h-1 sm:after:border-b sm:after:border-gray-200 sm:after:mx-4 xl:after:mx-6 dark:sm:after:border-gray-700 ${getStepClasses(
+    className={`flex flex-col sm:flex-row items-center md:w-full sm:after:w-full sm:after:h-1 sm:after:border-b sm:after:border-gray-200 sm:after:mx-4 xl:after:mx-6  ${getStepClasses(
       1
     )}`}
   >
@@ -35,7 +35,7 @@ font-medium md:text-center sm:text-base">
 
   {/* Step 2: Payment */}
   <li
-    className={`flex flex-col sm:flex-row items-center md:w-full sm:after:w-full sm:after:h-1 sm:after:border-b sm:after:border-gray-200 sm:after:mx-4 xl:after:mx-6 dark:sm:after:border-gray-700 ${getStepClasses(
+    className={`flex flex-col sm:flex-row items-center md:w-full sm:after:w-full sm:after:h-1 sm:after:border-b sm:after:border-gray-200 sm:after:mx-4 xl:after:mx-6  ${getStepClasses(
       2
     )}`}
   >

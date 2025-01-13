@@ -23,9 +23,10 @@ function HeartIconWithTooltip({onClick, isInWishlist}) {
 }
 
 export default function ProductDescription({product}) {
+	console.log("product", product);
 	const hasSizes = product.sizes && product.sizes.length > 0;
 	const hasColors = product.colors && product.colors.length > 0;
-	const hasDesigns = product.designs && product.designs.length > 0;
+	const hasDesigns = product.design && product.design.length > 0;
 	const [quantity, setQuantity] = useState(1);
 
 	const [selectedSize, setSelectedSize] = useState(
@@ -35,7 +36,7 @@ export default function ProductDescription({product}) {
 		hasColors ? product.colors[0]?.id : null
 	);
 	const [selectedDesign, setSelectedDesign] = useState(
-		hasDesigns ? product.designs[0]?.id : null
+		hasDesigns ? product.design[0]?.id : null
 	);
 
 	const [cart, setCart] = useState(
@@ -65,8 +66,8 @@ export default function ProductDescription({product}) {
 				setSelectedColor(product.colors[0]?.id);
 			}
 
-			if (!selectedDesign && product.designs?.length > 0) {
-				setSelectedDesign(product.designs[0]?.id);
+			if (!selectedDesign && product.design?.length > 0) {
+				setSelectedDesign(product.design[0]?.id);
 			}
 		}
 	}, [product, selectedSize, selectedColor, selectedDesign]);
@@ -81,6 +82,8 @@ export default function ProductDescription({product}) {
 			size: selectedSize,
 			color: selectedColor,
 			design: selectedDesign,
+			colorName: product.colors.find((item) => item.id === selectedColor)
+				?.name,
 			rating: product.averageRating,
 			addedOn: new Date().toISOString(),
 			thumbnail: product.thumbnail,
@@ -100,6 +103,8 @@ export default function ProductDescription({product}) {
 			slug: product.slug,
 			size: selectedSize,
 			color: selectedColor,
+			colorName: product.colors.find((item) => item.id === selectedColor)
+				?.name,
 			design: selectedDesign,
 			addedOn: new Date().toISOString(),
 			thumbnail: product.thumbnail,
@@ -160,14 +165,13 @@ export default function ProductDescription({product}) {
 				colors={product.colors}
 				selectedColor={selectedColor}
 				setSelectedColor={setSelectedColor}
-				designs={product.designs}
+				designs={product.design}
 				selectedDesign={selectedDesign}
 				setSelectedDesign={setSelectedDesign}
 			/>
-			
 
 			<ProductActions
-			hasSizes={hasSizes}
+				hasSizes={hasSizes}
 				size={product.sizes}
 				selectedSize={selectedSize}
 				setSelectedSize={setSelectedSize}

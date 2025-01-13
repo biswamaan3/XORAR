@@ -57,7 +57,7 @@ export default function ProductOption({
 											? "ring-2 ring-blue-600"
 											: ""
 									}`}
-									style={{backgroundImage: `url(${design})`}}
+									style={{backgroundImage: `url(${design.image})`}}
 									onClick={() => setSelectedDesign(design.id)}
 								>
 									{selectedDesign === design.id && (

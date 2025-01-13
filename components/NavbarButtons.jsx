@@ -19,7 +19,7 @@ function NavbarButtons() {
 				{totalSaved.cart > 0 && (
 					<div
 						className='absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white
-            bg-blue-500 border-2 border-white rounded-full -top-3 -end-2.5 dark:border-gray-900'
+            bg-blue-500 border-2 border-white rounded-full -top-3 -end-2.5 '
 					>
 						{totalSaved.cart}
 					</div>
@@ -35,7 +35,7 @@ function NavbarButtons() {
 				{totalSaved.wishlist > 0 && (
 					<div
 						className='absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white
-            bg-red-500 border-2 border-white rounded-full -top-3 -end-2.5 dark:border-gray-900'
+            bg-red-500 border-2 border-white rounded-full -top-3 -end-2.5 '
 					>
 						{totalSaved.wishlist}
 					</div>

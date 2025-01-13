@@ -10,6 +10,8 @@ function SingleProduct({
 	ratings,
 	link,
 	moveToCart,
+	actualPrice,
+	discount,
 	priceShow = true,
 	onClick,
 	productAddedInCart,
@@ -37,28 +39,35 @@ function SingleProduct({
 				</div>
 
 				{/* Star Rating */}
-				<div className='mt-2 flex items-center space-x-2'>
-					<StarRating ratings={ratings} />
-					<div className='flex items-center space-x-1'>
-						<span className='text-black text-sm'>{ratings}/</span>
-						<span className='text-gray-600 text-sm'>5</span>
+				{ratings > 0 && (
+					<div className='mt-2 flex items-center space-x-2'>
+						<StarRating ratings={ratings} />
+						<div className='flex items-center space-x-1'>
+							<span className='text-black text-sm'>
+								{ratings}/
+							</span>
+							<span className='text-gray-600 text-sm'>5</span>
+						</div>
 					</div>
-				</div>
+				)}
 
 				{priceShow && (
 					<div className='mt-2 flex items-center space-x-2'>
-						<span className='text-[24px] text-black font-satoshi font-extrabold'>
+						<span className='text-[24px] text-nowrap text-black font-satoshi font-extrabold'>
 							{process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}
 							{price}
 						</span>
-						<span className='text-[24px] line-through text-gray-500 font-satoshi font-[700]'>
-							{process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}260
+						<span className='text-[20px] line-through text-gray-500 font-satoshi font-[700]'>
+							{process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}{" "}
+							{actualPrice}
 						</span>
-						<button className='flex items-center justify-center px-4 py-2 bg-red-100 rounded-full'>
-							<span className='text-red-600 text-xs font-medium'>
-								-20%
-							</span>
-						</button>
+						{discount && (
+							<button className='flex items-center justify-center px-4 py-2 bg-red-100 rounded-full'>
+								<span className='text-red-600 text-xs font-medium'>
+									-{discount}%
+								</span>
+							</button>
+						)}
 					</div>
 				)}
 			</Link>

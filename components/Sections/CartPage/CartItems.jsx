@@ -80,7 +80,7 @@ function CartItem({ item, onRemove, onQuantityChange }) {
               </div>
               <div className="text-sm text-gray-500">
                 <span className="text-gray-800">Color: </span>
-                {item.color}
+                {item.colorName}
               </div>
               <p className="dollar-sign mt-3 text-lg font-semibold">
 			  ₹ {item.price}

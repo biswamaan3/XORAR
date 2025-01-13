@@ -8,7 +8,7 @@ function UserInfo({formData, handleInputChange, cartItems, handleSubmit}) {
 				<div>
 					<label
 						htmlFor='name'
-						className='mb-2 block text-sm font-medium text-gray-900 dark:text-white'
+						className='mb-2 block text-sm font-medium text-gray-900 '
 					>
 						Your name *
 					</label>
@@ -18,7 +18,7 @@ function UserInfo({formData, handleInputChange, cartItems, handleSubmit}) {
 						name='name'
 						value={formData.name}
 						onChange={handleInputChange}
-						className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500'
+						className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 noColorChange:border-gray-600 noColorChange:bg-gray-700 noColorChange:text-white noColorChange:placeholder:text-gray-400 noColorChange:focus:border-primary-500 noColorChange:focus:ring-primary-500'
 						placeholder='Bonnie Green'
 						required
 					/>
@@ -27,7 +27,7 @@ function UserInfo({formData, handleInputChange, cartItems, handleSubmit}) {
 				<div>
 					<label
 						htmlFor='email'
-						className='mb-2 block text-sm font-medium text-gray-900 dark:text-white'
+						className='mb-2 block text-sm font-medium text-gray-900 noColorChange:text-white'
 					>
 						Your email*
 					</label>
@@ -37,7 +37,7 @@ function UserInfo({formData, handleInputChange, cartItems, handleSubmit}) {
 						name='email'
 						value={formData.email}
 						onChange={handleInputChange}
-						className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500'
+						className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 noColorChange:border-gray-600 noColorChange:bg-gray-700 noColorChange:text-white noColorChange:placeholder:text-gray-400 noColorChange:focus:border-primary-500 noColorChange:focus:ring-primary-500'
 						placeholder='name@flowbite.com'
 						required
 					/>
@@ -47,7 +47,7 @@ function UserInfo({formData, handleInputChange, cartItems, handleSubmit}) {
 				<div>
 					<label
 						htmlFor='phone'
-						className='mb-2 block text-sm font-medium text-gray-900 dark:text-white'
+						className='mb-2 block text-sm font-medium text-gray-900 noColorChange:text-white'
 					>
 						Phone *
 					</label>
@@ -57,7 +57,7 @@ function UserInfo({formData, handleInputChange, cartItems, handleSubmit}) {
 						name='phone'
 						value={formData.phone}
 						onChange={handleInputChange}
-						className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500'
+						className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 noColorChange:border-gray-600 noColorChange:bg-gray-700 noColorChange:text-white noColorChange:placeholder:text-gray-400 noColorChange:focus:border-primary-500 noColorChange:focus:ring-primary-500'
 						placeholder='+91 XXXXXXXXXX'
 						required
 					/>
@@ -66,7 +66,7 @@ function UserInfo({formData, handleInputChange, cartItems, handleSubmit}) {
 				<div>
 					<label
 						htmlFor='country'
-						className='mb-2 block text-sm font-medium text-gray-900 dark:text-white'
+						className='mb-2 block text-sm font-medium text-gray-900 noColorChange:text-white'
 					>
 						Country*
 					</label>
@@ -76,7 +76,7 @@ function UserInfo({formData, handleInputChange, cartItems, handleSubmit}) {
 						name='country'
 						value={formData.country}
 						onChange={handleInputChange}
-						className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500'
+						className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 noColorChange:border-gray-600 noColorChange:bg-gray-700 noColorChange:text-white noColorChange:placeholder:text-gray-400 noColorChange:focus:border-primary-500 noColorChange:focus:ring-primary-500'
 						placeholder='e.g. United States'
 						required
 					/>
@@ -85,7 +85,7 @@ function UserInfo({formData, handleInputChange, cartItems, handleSubmit}) {
 			<div>
 				<label
 					htmlFor='address'
-					className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'
+					className='block mb-2 text-sm font-medium text-gray-900 noColorChange:text-white'
 				>
 					Address*
 				</label>
@@ -96,7 +96,7 @@ function UserInfo({formData, handleInputChange, cartItems, handleSubmit}) {
 					onChange={handleInputChange}
 					required
 					rows='4'
-					className='block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+					className='block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 noColorChange:bg-gray-700 noColorChange:border-gray-600 noColorChange:placeholder-gray-400 noColorChange:text-white noColorChange:focus:ring-blue-500 noColorChange:focus:border-blue-500'
 					placeholder='Enter Your complete address...'
 				></textarea>
 			</div>
@@ -104,7 +104,7 @@ function UserInfo({formData, handleInputChange, cartItems, handleSubmit}) {
 				<div>
 					<label
 						htmlFor='state'
-						className='mb-2 block text-sm font-medium text-gray-900 dark:text-white'
+						className='mb-2 block text-sm font-medium text-gray-900 noColorChange:text-white'
 					>
 						State *
 					</label>
@@ -114,7 +114,7 @@ function UserInfo({formData, handleInputChange, cartItems, handleSubmit}) {
 						name='state'
 						value={formData.state}
 						onChange={handleInputChange}
-						className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500'
+						className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 noColorChange:border-gray-600 noColorChange:bg-gray-700 noColorChange:text-white noColorChange:placeholder:text-gray-400 noColorChange:focus:border-primary-500 noColorChange:focus:ring-primary-500'
 						placeholder='Bonnie Green'
 						required
 					/>
@@ -123,7 +123,7 @@ function UserInfo({formData, handleInputChange, cartItems, handleSubmit}) {
 				<div>
 					<label
 						htmlFor='city'
-						className='mb-2 block text-sm font-medium text-gray-900 dark:text-white'
+						className='mb-2 block text-sm font-medium text-gray-900 noColorChange:text-white'
 					>
 						City*
 					</label>
@@ -133,7 +133,7 @@ function UserInfo({formData, handleInputChange, cartItems, handleSubmit}) {
 						value={formData.city}
 						name='city'
 						onChange={handleInputChange}
-						className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500'
+						className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 noColorChange:border-gray-600 noColorChange:bg-gray-700 noColorChange:text-white noColorChange:placeholder:text-gray-400 noColorChange:focus:border-primary-500 noColorChange:focus:ring-primary-500'
 						placeholder='name@flowbite.com'
 						required
 					/>
@@ -143,7 +143,7 @@ function UserInfo({formData, handleInputChange, cartItems, handleSubmit}) {
 				<div>
 					<label
 						htmlFor='pincode'
-						className='mb-2 block text-sm font-medium text-gray-900 dark:text-white'
+						className='mb-2 block text-sm font-medium text-gray-900 noColorChange:text-white'
 					>
 						Pin Code *
 					</label>
@@ -153,7 +153,7 @@ function UserInfo({formData, handleInputChange, cartItems, handleSubmit}) {
 						name='pinCode'
 						value={formData.pinCode}
 						onChange={handleInputChange}
-						className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500'
+						className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 noColorChange:border-gray-600 noColorChange:bg-gray-700 noColorChange:text-white noColorChange:placeholder:text-gray-400 noColorChange:focus:border-primary-500 noColorChange:focus:ring-primary-500'
 						placeholder='e.g. 123456'
 						required
 					/>
@@ -162,7 +162,7 @@ function UserInfo({formData, handleInputChange, cartItems, handleSubmit}) {
 				<div>
 					<label
 						htmlFor='landmark'
-						className='mb-2 block text-sm font-medium text-gray-900 dark:text-white'
+						className='mb-2 block text-sm font-medium text-gray-900 noColorChange:text-white'
 					>
 						Landmark (if any)
 					</label>
@@ -172,7 +172,7 @@ function UserInfo({formData, handleInputChange, cartItems, handleSubmit}) {
 						name='landmark'
 						value={formData.landmark}
 						onChange={handleInputChange}
-						className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500'
+						className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 noColorChange:border-gray-600 noColorChange:bg-gray-700 noColorChange:text-white noColorChange:placeholder:text-gray-400 noColorChange:focus:border-primary-500 noColorChange:focus:ring-primary-500'
 						placeholder='e.g. Near XYZ'
 					/>
 				</div>
@@ -185,7 +185,7 @@ function UserInfo({formData, handleInputChange, cartItems, handleSubmit}) {
 					className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4
     w-full flex items-center gap-3 justify-center mt-8
     disabled:opacity-50 disabled:cursor-not-allowed
-     focus:ring-blue-300 font-medium rounded-lg text-md px-5 py-4 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800'
+     focus:ring-blue-300 font-medium rounded-lg text-md px-5 py-4 me-2 mb-2 noColorChange:bg-blue-600 noColorChange:hover:bg-blue-700 focus:outline-none noColorChange:focus:ring-blue-800'
 				>
 					Continue to Payment <FaArrowRight />
 				</button>

@@ -42,9 +42,7 @@ const FilterHeader = ({handleOpenFilter}) => {
 			</span>
 
 			<div className='w-full md:w-auto flex flex-row justify-between items-center gap-4 mt-4 md:mt-0'>
-				<span className='font-satoshi hidden md:block text-[16px] font-normal leading-[21.6px] text-[rgba(0,0,0,0.6)] relative text-left'>
-					Showing {totalProductsShown} of {totalProducts} Products{" "}
-				</span>
+				
 				<button
 					onClick={handleOpenFilter}
 					className='md:hidden  filter-btn flex items-center gap-2  text-black py-2 px-4 rounded-md hover:bg-gray-300'
