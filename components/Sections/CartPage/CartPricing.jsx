@@ -35,7 +35,14 @@ export default function CartPricing({
 						{process.env.NEXT_PUBLIC_CURRENCY_SYMBOL} {subtotalValue}
 					</span>
 				</div>
-
+				<div className='flex justify-between items-center w-full'>
+						<span className='text-lg text-[rgba(0,0,0,0.6)]'>
+							Delivery Charges
+						</span>
+						<span className='text-lg font-bold '>
+						{process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}0 {"(Free Delivery)"}
+						</span>
+					</div>
 				{discount && (
 					<div className='flex justify-between items-center w-full'>
 						<span className='text-lg text-[rgba(0,0,0,0.6)]'>

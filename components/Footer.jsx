@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Link from "next/link";
 import React from "react";
 import {LiaFacebookF, LiaInstagram} from "react-icons/lia";
@@ -56,7 +56,10 @@ const NewsletterSubscription = ({email, setEmail, handleSubmit, loading}) => (
 		<button
 			onClick={handleSubmit}
 			disabled={loading}
-			className='w-full p-4 bg-white rounded-full text-black font-medium text-sm md:text-base'
+			className={
+				"w-full p-4 bg-white rounded-full text-black font-medium text-sm md:text-base " +
+				(loading ? "bg-gray-800" : "bg-white")
+			  }
 		>
 			{loading ? <ButtonLoader /> : "Subscribe to Newsletter"}
 		</button>
@@ -109,7 +112,7 @@ export default function Footer() {
 			);
 
 			if (response.data.success) {
-				setSuccess(true);
+				toast.success("Thanks for Subscribing.");
 			} else {
 				toast.error("Failed to verify email. Please try again.");
 			}
@@ -165,8 +168,16 @@ export default function Footer() {
 							you’re proud to wear. From women to men.
 						</p>
 						<div className='flex gap-2 items-center'>
-							<SocialIcon href={"/"} icon={LiaFacebookF} />
-							<SocialIcon href={"/"} icon={LiaInstagram} />
+							<SocialIcon
+								href={
+									"https://www.facebook.com/profile.php?id=61570540384514&mibextid=ZbWKwL"
+								}
+								icon={LiaFacebookF}
+							/>
+							<SocialIcon
+								href={"https://www.instagram.com/_xorar/"}
+								icon={LiaInstagram}
+							/>
 						</div>
 					</div>
 

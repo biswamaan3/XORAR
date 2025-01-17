@@ -7,7 +7,8 @@ import AOSProvider from "@/components/providers/AosProvider";
 import {Bounce, ToastContainer} from "react-toastify";
 import {AppProvider} from "@/components/providers/AppProvider";
 import Script from "next/script";
-import { GoogleAnalytics } from '@next/third-parties/google'
+import {GoogleAnalytics, GoogleTagManager} from "@next/third-parties/google";
+import {SpeedInsights} from "@vercel/speed-insights/next";
 
 const SilentForest = localFont({
 	name: "SilentForest",
@@ -65,43 +66,38 @@ const LexendFont = Lexend({
 	subsets: ["latin"],
 });
 
-
-
 // authors: [{ name: "Mayur Jadhav", url: "https://mayurjadhav.tech" }],
 export const metadata = {
 	title: "Xorar | Hoodies and Tshirts",
 	description: "",
-	keywords:
-	  "",
+	keywords: "",
 	metadataBase: new URL("https://xorar.com"),
 	alternates: {
-	  canonical: "https://xorar.com",
+		canonical: "https://xorar.com",
 	},
 	icons: {
 		icon: "/assets/logo.svg",
 	},
 	openGraph: {
-	  title: "Xorar | Hoodies and Tshirts",
-	  description:
-		"",
-	  url: "https://xorar.com",
-	  images: "/assets/wesite_image.png",
-	  type: "website",
+		title: "Xorar | Hoodies and Tshirts",
+		description: "",
+		url: "https://xorar.com",
+		images: "/assets/wesite_image.png",
+		type: "website",
 	},
 	twitter: {
-	  card: "summary_large_image",
-	  title: "Xorar | Hoodies and Tshirts",
-	  description:
-		"",
-	  images: "/assets/wesite_image.png",
+		card: "summary_large_image",
+		title: "Xorar | Hoodies and Tshirts",
+		description: "",
+		images: "/assets/wesite_image.png",
 	},
 	other: {
-	  "google-site-verification": "",
-  
-	  canonical: "https://xorar.com",
-	  robots: "index, follow",
+		"google-site-verification": "",
+
+		canonical: "https://xorar.com",
+		robots: "index, follow",
 	},
-  };
+};
 
 export default function RootLayout({children}) {
 	return (
@@ -134,14 +130,16 @@ export default function RootLayout({children}) {
 						<Footer />
 					</AOSProvider>
 				</AppProvider>
-				<GoogleAnalytics gaId="G-Z7RP2203NS"/>
-				<Script type='text/javascript'>
+				<GoogleAnalytics gaId='G-Z7RP2203NS' />
+				<GoogleTagManager gtmId='GTM-W53ZD5VZ' />
+				<Script type='text/javascript' id='microsoft-clarity-analytics'>
 					{`    (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "pveopzlm7d");`}
 				</Script>
+				<SpeedInsights />
 			</body>
 		</html>
 	);

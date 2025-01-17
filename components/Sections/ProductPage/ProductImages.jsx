@@ -3,7 +3,7 @@ import React, {useState} from "react";
 
 export default function ProductImages({thumbnail, images}) {
 	const [primaryImage, setPrimaryImage] = useState(thumbnail);
-	const [thumbnails, setThumbnails] = useState(images);
+	const [thumbnails, setThumbnails] = useState([thumbnail, ...images]);
 
 	return (
 		<div className='flex flex-col-reverse sm:flex-row items-center sm:items-start gap-4 w-full max-w-[1200px] mx-auto'>
