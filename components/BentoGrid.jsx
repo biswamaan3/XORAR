@@ -3,7 +3,7 @@ import "@/styles/BentoGrid.min.css";
 import Link from "next/link";
 import {BentoCardData} from "@/data/products";
 const divClasses =
-	"absolute inset-0 w-full h-full bg-black rounded-xl bg-opacity-50 ";
+	"absolute inset-0 w-full h-full bg-black rounded-xl bg-opacity-30 ";
 
 function BentoGrid() {
 	return (
