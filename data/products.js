@@ -1,36 +1,33 @@
 const HeroSection = {
-    image: "/assets/img/hero_model.png",
-}
-
+	image: "/assets/img/hero_model.png",
+};
 
 const BentoCardData = [
-  {
-    "href": "/product/all?style=casual",
-    "backgroundImage": "/assets/img/products/man1.png",
-    "title": "Casual\nTshirts",
-    "colSpan": "col-span-1 md:col-span-1 lg:col-span-5"
-  },
-  {
-    "href": "/product/all?style=formal",
-    "backgroundImage": "/assets/img/products/man2.png",
-    "title": "Formal\nTshirts",
-    "colSpan": "col-span-1 md:col-span-1 lg:col-span-7"
-  },
-  {
-    "href": "/product/all?style=anime",
-    "backgroundImage": "/assets/img/products/man3.png",
-    "title": "Anime\nTshirts",
-    "colSpan": "col-span-1 md:col-span-1 lg:col-span-7"
-  },
-  {
-    "href": "/product/all?category=hoodies",
-    "backgroundImage": "/assets/img/products/man4.png",
-    "title": "Hoodies",
-    "colSpan": "col-span-1 md:col-span-1 lg:col-span-5"
-  }
-]
-
-
+	{
+		href: "/product/all?style=casual",
+		backgroundImage: "/assets/img/products/man1.png",
+		title: "Casual\nTshirts",
+		colSpan: "col-span-1 md:col-span-1 lg:col-span-5",
+	},
+	{
+		href: "/product/all?style=formal",
+		backgroundImage: "/assets/img/products/man2.png",
+		title: "Streetwear",
+		colSpan: "col-span-1 md:col-span-1 lg:col-span-7",
+	},
+	{
+		href: "/product/all?style=anime",
+		backgroundImage: "/assets/img/products/man3.png",
+		title: "Formal\nTshirts",
+		colSpan: "col-span-1 md:col-span-1 lg:col-span-7",
+	},
+	{
+		href: "/product/all?category=hoodies",
+		backgroundImage: "/assets/img/products/man4.png",
+		title: "Women\nTshirts",
+		colSpan: "col-span-1 md:col-span-1 lg:col-span-5",
+	},
+];
 
 const testimonials = [
 	{
@@ -65,4 +62,4 @@ const testimonials = [
 	},
 ];
 
-export { HeroSection, BentoCardData, testimonials }
+export {HeroSection, BentoCardData, testimonials};

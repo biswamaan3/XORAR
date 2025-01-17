@@ -175,7 +175,7 @@ const FilterBar = () => {
 
 			<div className='border-t border-gray-300 mt-2' />
 
-			<CollapsibleSection
+			{/* <CollapsibleSection
 				title='Dress Style'
 				isOpen={openSections.dressStyle}
 				onToggle={() => toggleSection("dressStyle")}
@@ -204,7 +204,7 @@ const FilterBar = () => {
 						</div>
 					))}
 				</div>
-			</CollapsibleSection>
+			</CollapsibleSection> */}
 
 			<button
 				className='w-full bg-[#012f3f] text-white font-medium text-lg rounded-full py-3'
