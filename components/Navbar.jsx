@@ -1,12 +1,13 @@
 import React from "react";
-import {CiHeart, CiSearch} from "react-icons/ci";
 
 import Link from "next/link";
 import "@/styles/Navbar.css";
 import ShopDropDown from "./ShopDropDown";
 import NavbarButtons from "./NavbarButtons";
+import SearchComp from "./search/SearchComp";
 
 export default function Navbar() {
+
 	return (
 		<div className='main-container !overflow-visible'>
 			<div className='w-[90%] mx-auto flex items-center justify-between md:gap-10 gap-3'>
@@ -24,20 +25,7 @@ export default function Navbar() {
 					<ShopDropDown />
 				</div>
 
-				<form className='flex items-center gap-3 bg-[#efefef] p-3 rounded-full flex-grow'>
-					<div className='relative w-full'>
-						<div className='absolute inset-y-0 start-0 flex items-center pointer-events-none'>
-							<CiSearch className='frame-6 ml-1' />
-						</div>
-						<input
-							type='search'
-							id='default-search'
-							className='ps-8 block w-full text-[16px] text-gray-900 bg-transparent'
-							placeholder='Search for products...'
-							required=''
-						/>
-					</div>
-				</form>
+				<SearchComp/>
 
 				<NavbarButtons />
 			</div>
