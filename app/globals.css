@@ -18,15 +18,15 @@ html {
 	font-family: var(--font-default), sans-serif;
 }
 .light-text {
-  font-weight: 300; /* Satoshi-Light */
+	font-weight: 300; /* Satoshi-Light */
 }
 
 .regular-text {
-  font-weight: 400; /* Satoshi-Regular */
+	font-weight: 400; /* Satoshi-Regular */
 }
 
 .bold-text {
-  font-weight: 700; /* Satoshi-Bold */
+	font-weight: 700; /* Satoshi-Bold */
 }
 
 .frame-36 {
@@ -162,9 +162,8 @@ html {
 	.product-name {
 		font-size: 16px;
 	}
-	.cart-product-name{
+	.cart-product-name {
 		font-size: 17px !important;
-	;
 	}
 }
 
@@ -178,22 +177,39 @@ html {
 	text-align: left;
 	z-index: 10;
 }
-input[type=range]::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
 	pointer-events: all;
 	width: 24px;
 	height: 24px;
 	-webkit-appearance: none;
-  
-/* @apply w-6 h-6 appearance-none pointer-events-auto; */
+
+	/* @apply w-6 h-6 appearance-none pointer-events-auto; */
 }
 .hide-scrollbar {
 	/* For modern browsers */
 	scrollbar-width: none; /* Firefox */
 	-ms-overflow-style: none; /* Internet Explorer 10+ */
-  
+
 	/* For Chrome, Safari, and Edge */
 	&::-webkit-scrollbar {
-	  display: none;
+		display: none;
 	}
-  }
-  
+}
+
+.loader-button {
+	
+	border-bottom-color: transparent;
+	border-radius: 50%;
+	display: inline-block;
+	box-sizing: border-box;
+	animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

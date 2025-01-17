@@ -7,6 +7,8 @@ import {BigStarRating, StarRating} from "@/components/misc/Buttons";
 import {Bounce, toast} from "react-toastify";
 import {IoHeartCircleOutline} from "react-icons/io5";
 import {useAppProvider} from "@/components/providers/AppProvider";
+import { handleAddToBuyNow } from "@/lib/utils";
+import { useRouter } from "next/navigation";
 
 function HeartIconWithTooltip({onClick, isInWishlist}) {
 	return (
@@ -23,7 +25,6 @@ function HeartIconWithTooltip({onClick, isInWishlist}) {
 }
 
 export default function ProductDescription({product}) {
-	console.log("product", product);
 	const hasSizes = product.sizes && product.sizes.length > 0;
 	const hasColors = product.colors && product.colors.length > 0;
 	const hasDesigns = product.design && product.design.length > 0;
@@ -71,6 +72,7 @@ export default function ProductDescription({product}) {
 			}
 		}
 	}, [product, selectedSize, selectedColor, selectedDesign]);
+
 	const {handleAddToCart, handleAddToWishlist} = useAppProvider();
 	const handleAddToWishlistBtn = async () => {
 		await handleAddToWishlist({
@@ -112,6 +114,48 @@ export default function ProductDescription({product}) {
 
 		const updatedCart = JSON.parse(localStorage.getItem("cart")) || [];
 		setCart(updatedCart);
+	};
+	const router = useRouter();
+	const handleBuyNow = async () => {
+	
+	
+		try {
+			const {
+				id,
+				title,
+				price,
+				slug,
+				thumbnail,
+				colors,
+			} = product;
+	
+			const colorName = colors.find((item) => item.id === selectedColor)?.name;
+	
+			const addedToCart = await handleAddToBuyNow({
+				id,
+				isBuyNow: true,
+				title,
+				price,
+				quantity,
+				slug,
+				size: selectedSize,
+				color: selectedColor,
+				colorName,
+				design: selectedDesign,
+				addedOn: new Date().toISOString(),
+				thumbnail,
+			});
+			console.log("addedToCart", addedToCart);
+	
+			if (addedToCart) {
+				router.push(`/checkout?buyNow=true&id=${id}`);
+			}else{
+				toast.error("Failed to Redirect to Checkout")
+			}
+		} catch (error) {
+			console.error("Error adding to cart:", error);
+			// Optionally, handle the error or show a message to the user
+		}
 	};
 
 	return (
@@ -179,6 +223,7 @@ export default function ProductDescription({product}) {
 				quantiy={quantity}
 				handleAddToCartButton={handleAddToCartButton}
 				isInCart={cart.some((item) => item.id === product.id)}
+				handleBuyNow={handleBuyNow}
 			/>
 		</div>
 	);

@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {IoIosArrowRoundBack, IoIosArrowRoundForward} from "react-icons/io";
 import { TestimonialCard } from "./misc/TestimonialCard";
-
+import { testimonials } from "@/data/products";
 const settings = {
 	dots: false,
 	infinite: true,
@@ -58,38 +58,7 @@ const settings = {
 		},
 	],
 };
-export const testimonials = [
-	{
-		name: "Sarah M.",
-		text: `"I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.”`,
-		stars: 5,
-	},
-	{
-		name: "Aditi Rao",
-		text: `"The hoodies are soft, snug, and the t-shirts fit like they were tailored just for me! I've never felt this good about casual wear. Highly recommend!”`,
-		stars: 4,
-	},
-	{
-		name: "John D.",
-		text: `"I’ve been looking for the perfect sneakers for months and finally found them here. They are comfortable, stylish, and great quality!”`,
-		stars: 5,
-	},
-	{
-		name: "Emily S.",
-		text: `"The jackets I bought from Shop.co are fantastic! They keep me warm without being bulky and look great with every outfit!"`,
-		stars: 4.5,
-	},
-	{
-		name: "Mike P.",
-		text: `"As someone who’s picky about fit, these clothes fit me perfectly! I can’t wait to buy more. Customer service was excellent too!"`,
-		stars: 5,
-	},
-	{
-		name: "Olivia W.",
-		text: `"The shopping experience was easy and efficient. I loved how quick the delivery was, and the items were exactly as described. Will buy again!"`,
-		stars: 4,
-	},
-];
+
 
 
 function NextArrow(props) {

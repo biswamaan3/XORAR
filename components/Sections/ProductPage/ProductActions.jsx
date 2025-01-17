@@ -1,8 +1,10 @@
 "use client";
 import React, {useState} from "react";
 import {ProductDesc, Separator} from "../../misc/Text";
+import {TiTick} from "react-icons/ti";
 
 import {QuantityButton} from "@/components/misc/Buttons";
+import ButtonLoader from "@/components/loaders/ButtonLoader";
 
 export default function ProductActions({
 	hasSizes,
@@ -13,7 +15,17 @@ export default function ProductActions({
 	setQuantity,
 	handleAddToCartButton,
 	isInCart,
+	handleBuyNow,
 }) {
+	const [buttonClicked, setButtonClicked] = useState(false);
+	const handleButtonClicked = (func) => {
+		func();
+
+		setButtonClicked(true);
+		setTimeout(() => {
+			setButtonClicked(false);
+		}, 5000);
+	};
 	const handleQuantity = (type) => {
 		if (type === "increment") {
 			setQuantity(quantiy + 1);
@@ -54,15 +66,33 @@ export default function ProductActions({
 
 					<div className='flex-1 basis-4/5'>
 						<button
-							className={`w-full bg-[#012f3f] text-white font-medium text-lg rounded-full py-3 ${
-								isInCart ? "bg-blue-600" : ""
-							}`}
+							className={`w-full 
+								text-center
+								bg-[#012f3f] text-white font-medium text-lg rounded-full py-3 ${
+									isInCart ? "bg-blue-600" : ""
+								}`}
 							onClick={handleAddToCartButton}
 						>
-							{isInCart ? "Already Added to Cart" : "Add to Cart"}
+							{isInCart ? (
+								<TiTick className='w-6 h-6 mx-auto' />
+							) : (
+								"Add to Cart"
+							)}
 						</button>
 					</div>
 				</div>
+
+				<button
+					className={`w-full 
+								text-center
+								bg-[#012f3f] text-white font-medium text-lg rounded-full py-3
+								
+								`}
+					onClick={() => handleButtonClicked(handleBuyNow)}
+					disabled={buttonClicked}
+				>
+					{buttonClicked ? <ButtonLoader /> : "Buy Now"}
+				</button>
 			</div>
 		</div>
 	);

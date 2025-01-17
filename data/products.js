@@ -1,209 +1,68 @@
-const products = [
-    {
-      id: Date.now() + Math.floor(Math.random() * 1000), // Unique ID generated
-      type: "Tshirt",
-      img: "/assets/img/products/tshirt1.png",
-      title: "Classic Cotton T-shirt",
-      price: 19.99,
-      discount: 3.99,
-      discountPercentage: 20,
-      ratings: 4.5,
-      quantity: 50,
-      colorsAvailable: {
-        Red: "#FF0000",
-        Blue: "#0000FF",
-        Black: "#000000",
-        White: "#FFFFFF",
-      },
-      variants: [
-        "/assets/img/products/tshirt1.png",
-        "/assets/img/products/tshirt2.png",
-        "/assets/img/products/tshirt3.png",
-        "/assets/img/products/tshirt4.png",
-      ],
-      otherImages: ["/assets/img/products/tshirt2.png", "/assets/img/products/tshirt3.png"],
-      description: "A classic cotton T-shirt that's both comfortable and stylish.",
-      slug: "classic-cotton-tshirt",
-      showHome: true,
-    },
-    {
-      id: Date.now() + Math.floor(Math.random() * 1000), // Unique ID generated
-      type: "Tshirt",
-      img: "/assets/img/products/tshirt2.png",
-      title: "Modern Fit T-shirt",
-      price: 24.99,
-      discount: 5.99,
-      discountPercentage: 25,
-      ratings: 4.2,
-      quantity: 30,
-      colorsAvailable: {
-        Green: "#008000",
-        Navy: "#000080",
-        Gray: "#808080",
-      },
-      variants: [
-        "/assets/img/products/tshirt2.png",
-        "/assets/img/products/tshirt1.png",
-        "/assets/img/products/tshirt3.png",
-        "/assets/img/products/tshirt4.png",
-      ],
-      otherImages: ["/assets/img/products/tshirt1.png", "/assets/img/products/tshirt4.png"],
-      description: "A modern fit T-shirt that looks sharp and feels comfortable.",
-      slug: "modern-fit-tshirt",
-      showHome: true,
-    },
-    {
-      id: Date.now() + Math.floor(Math.random() * 1000), // Unique ID generated
-      type: "Tshirt",
-      img: "/assets/img/products/tshirt3.png",
-      title: "Graphic Tee",
-      price: 17.99,
-      discount: 2.99,
-      discountPercentage: 15,
-      ratings: 4.7,
-      quantity: 70,
-      colorsAvailable: {
-        Yellow: "#FFFF00",
-        Black: "#000000",
-      },
-      variants: [
-        "/assets/img/products/tshirt3.png",
-        "/assets/img/products/tshirt1.png",
-        "/assets/img/products/tshirt2.png",
-        "/assets/img/products/tshirt4.png",
-      ],
-      otherImages: ["/assets/img/products/tshirt2.png", "/assets/img/products/tshirt4.png"],
-      description: "A cool graphic tee perfect for casual wear.",
-      slug: "graphic-tee",
-      showHome: false,
-    },
-    {
-      id: Date.now() + Math.floor(Math.random() * 1000), // Unique ID generated
-      type: "Tshirt",
-      img: "/assets/img/products/tshirt4.png",
-      title: "V-Neck T-shirt",
-      price: 22.99,
-      discount: 4.99,
-      discountPercentage: 18,
-      ratings: 4.4,
-      quantity: 40,
-      colorsAvailable: {
-        Maroon: "#800000",
-        Olive: "#808000",
-      },
-      variants: [
-        "/assets/img/products/tshirt4.png",
-        "/assets/img/products/tshirt1.png",
-        "/assets/img/products/tshirt2.png",
-        "/assets/img/products/tshirt3.png",
-      ],
-      otherImages: ["/assets/img/products/tshirt1.png", "/assets/img/products/tshirt3.png"],
-      description: "A stylish V-neck T-shirt for a trendy look.",
-      slug: "v-neck-tshirt",
-      showHome: true,
-    },
-    {
-      id: Date.now() + Math.floor(Math.random() * 1000), // Unique ID generated
-      type: "Hoodie",
-      img: "/assets/img/products/hoodie1.png",
-      title: "Classic Pullover Hoodie",
-      price: 39.99,
-      discount: 7.99,
-      discountPercentage: 20,
-      ratings: 4.6,
-      quantity: 25,
-      colorsAvailable: {
-        Black: "#000000",
-        White: "#FFFFFF",
-        Red: "#FF0000",
-      },
-      variants: [
-        "/assets/img/products/hoodie1.png",
-        "/assets/img/products/hoodie2.png",
-        "/assets/img/products/hoodie3.png",
-        "/assets/img/products/hoodie4.png",
-      ],
-      otherImages: ["/assets/img/products/hoodie2.png", "/assets/img/products/hoodie3.png"],
-      description: "A warm and cozy pullover hoodie for all occasions.",
-      slug: "classic-pullover-hoodie",
-      showHome: true,
-    },
-    {
-      id: Date.now() + Math.floor(Math.random() * 1000), // Unique ID generated
-      type: "Hoodie",
-      img: "/assets/img/products/hoodie2.png",
-      title: "Zip-Up Hoodie",
-      price: 44.99,
-      discount: 9.99,
-      discountPercentage: 22,
-      ratings: 4.3,
-      quantity: 20,
-      colorsAvailable: {
-        Blue: "#0000FF",
-        Gray: "#808080",
-      },
-      variants: [
-        "/assets/img/products/hoodie2.png",
-        "/assets/img/products/hoodie1.png",
-        "/assets/img/products/hoodie3.png",
-        "/assets/img/products/hoodie4.png",
-      ],
-      otherImages: ["/assets/img/products/hoodie1.png", "/assets/img/products/hoodie4.png"],
-      description: "A versatile zip-up hoodie with great style and comfort.",
-      slug: "zip-up-hoodie",
-      showHome: true,
-    },
-    {
-      id: Date.now() + Math.floor(Math.random() * 1000), // Unique ID generated
-      type: "Hoodie",
-      img: "/assets/img/products/hoodie3.png",
-      title: "Oversized Hoodie",
-      price: 49.99,
-      discount: 10.99,
-      discountPercentage: 18,
-      ratings: 4.8,
-      quantity: 15,
-      colorsAvailable: {
-        Green: "#008000",
-        Black: "#000000",
-      },
-      variants: [
-        "/assets/img/products/hoodie3.png",
-        "/assets/img/products/hoodie1.png",
-        "/assets/img/products/hoodie2.png",
-        "/assets/img/products/hoodie4.png",
-      ],
-      otherImages: ["/assets/img/products/hoodie2.png", "/assets/img/products/hoodie4.png"],
-      description: "An oversized hoodie for maximum comfort and style.",
-      slug: "oversized-hoodie",
-      showHome: false,
-    },
-    {
-      id: Date.now() + Math.floor(Math.random() * 1000), // Unique ID generated
-      type: "Hoodie",
-      img: "/assets/img/products/hoodie4.png",
-      title: "Lightweight Hoodie",
-      price: 34.99,
-      discount: 6.99,
-      discountPercentage: 16,
-      ratings: 4.5,
-      quantity: 10,
-      colorsAvailable: {
-        Yellow: "#FFFF00",
-        Navy: "#000080",
-      },
-      variants: [
-        "/assets/img/products/hoodie4.png",
-        "/assets/img/products/hoodie1.png",
-        "/assets/img/products/hoodie2.png",
-        "/assets/img/products/hoodie3.png",
-      ],
-      otherImages: ["/assets/img/products/hoodie1.png", "/assets/img/products/hoodie3.png"],
-      description: "A lightweight hoodie perfect for cool weather.",
-      slug: "lightweight-hoodie",
-      showHome: true,
-    },
-  ];
-  
-  export default products;
-  
+const HeroSection = {
+    image: "/assets/img/hero_model.png",
+}
+
+
+const BentoCardData = [
+  {
+    "href": "/product/all?style=casual",
+    "backgroundImage": "/assets/img/products/man1.png",
+    "title": "Casual\nTshirts",
+    "colSpan": "col-span-1 md:col-span-1 lg:col-span-5"
+  },
+  {
+    "href": "/product/all?style=formal",
+    "backgroundImage": "/assets/img/products/man2.png",
+    "title": "Formal\nTshirts",
+    "colSpan": "col-span-1 md:col-span-1 lg:col-span-7"
+  },
+  {
+    "href": "/product/all?style=anime",
+    "backgroundImage": "/assets/img/products/man3.png",
+    "title": "Anime\nTshirts",
+    "colSpan": "col-span-1 md:col-span-1 lg:col-span-7"
+  },
+  {
+    "href": "/product/all?category=hoodies",
+    "backgroundImage": "/assets/img/products/man4.png",
+    "title": "Hoodies",
+    "colSpan": "col-span-1 md:col-span-1 lg:col-span-5"
+  }
+]
+
+
+
+const testimonials = [
+	{
+		name: "Sarah M.",
+		text: `"I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.”`,
+		stars: 5,
+	},
+	{
+		name: "Aditi Rao",
+		text: `"The hoodies are soft, snug, and the t-shirts fit like they were tailored just for me! I've never felt this good about casual wear. Highly recommend!”`,
+		stars: 4,
+	},
+	{
+		name: "John D.",
+		text: `"I’ve been looking for the perfect sneakers for months and finally found them here. They are comfortable, stylish, and great quality!”`,
+		stars: 5,
+	},
+	{
+		name: "Emily S.",
+		text: `"The jackets I bought from Shop.co are fantastic! They keep me warm without being bulky and look great with every outfit!"`,
+		stars: 4.5,
+	},
+	{
+		name: "Mike P.",
+		text: `"As someone who’s picky about fit, these clothes fit me perfectly! I can’t wait to buy more. Customer service was excellent too!"`,
+		stars: 5,
+	},
+	{
+		name: "Olivia W.",
+		text: `"The shopping experience was easy and efficient. I loved how quick the delivery was, and the items were exactly as described. Will buy again!"`,
+		stars: 4,
+	},
+];
+
+export { HeroSection, BentoCardData, testimonials }

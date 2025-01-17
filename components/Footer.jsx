@@ -1,13 +1,12 @@
+"use client"
 import Link from "next/link";
 import React from "react";
-import {
-	LiaFacebookF,
-	LiaInstagram,
-	LiaReddit,
-	LiaTwitter,
-} from "react-icons/lia";
+import {LiaFacebookF, LiaInstagram} from "react-icons/lia";
 import {MdOutlineMail} from "react-icons/md";
 import {FaLocationDot, FaPhone} from "react-icons/fa6";
+import ButtonLoader from "./loaders/ButtonLoader";
+import {toast} from "react-toastify";
+import axios from "axios";
 
 const SocialIcon = ({href, icon: Icon}) => (
 	<Link href={href} target='_blank'>
@@ -37,8 +36,7 @@ const LinkSection = ({title, links}) => (
 	</div>
 );
 
-// Newsletter Subscription Component
-const NewsletterSubscription = () => (
+const NewsletterSubscription = ({email, setEmail, handleSubmit, loading}) => (
 	<div className='flex flex-col gap-4 mt-4 md:mt-0 w-full md:w-[40%]'>
 		<div className='relative w-full'>
 			<div className='absolute inset-y-0 start-0 flex items-center ps-4 pointer-events-none'>
@@ -49,12 +47,18 @@ const NewsletterSubscription = () => (
 				id='email'
 				className='w-full p-4 bg-white rounded-full shadow-md border border-gray-300 text-gray-900 text-md 
           focus:ring-blue-500 focus:border-blue-500 block ps-14 '
-				placeholder='Search branch name...'
+				placeholder='Enter Email...'
 				required
+				value={email}
+				onChange={(e) => setEmail(e.target.value)}
 			/>
 		</div>
-		<button className='w-full p-4 bg-white rounded-full text-black font-medium text-sm md:text-base'>
-			Subscribe to Newsletter
+		<button
+			onClick={handleSubmit}
+			disabled={loading}
+			className='w-full p-4 bg-white rounded-full text-black font-medium text-sm md:text-base'
+		>
+			{loading ? <ButtonLoader /> : "Subscribe to Newsletter"}
 		</button>
 	</div>
 );
@@ -64,7 +68,6 @@ const footerSections = [
 		links: [
 			{name: "About", href: "/about-us"},
 			{name: "Contact us", href: "/contact-us"},
-	
 		],
 	},
 	{
@@ -81,8 +84,45 @@ const footerSections = [
 		],
 	},
 ];
+const isValidEmail = (email) => {
+	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+	return emailRegex.test(email);
+};
 
 export default function Footer() {
+	const [email, setEmail] = React.useState("");
+	const [loading, setLoading] = React.useState(false);
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+
+		if (!isValidEmail(email)) {
+			toast.error("Please enter a valid email address.");
+			return;
+		}
+
+		setLoading(true);
+
+		try {
+			const response = await axios.post(
+				`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/external/email`,
+				{email}
+			);
+
+			if (response.data.success) {
+				setSuccess(true);
+			} else {
+				toast.error("Failed to verify email. Please try again.");
+			}
+		} catch (error) {
+			toast.error(
+				"An error occurred while verifying the email. Please try again."
+			);
+			console.error("API Error:", error);
+		} finally {
+			setLoading(false);
+		}
+	};
+
 	return (
 		<div className='max-w-full mx-auto relative'>
 			{/* Top Section */}
@@ -96,7 +136,12 @@ export default function Footer() {
 				<span className='text-center md:text-left w-full md:w-[60%] text-[20px] md:text-[40px] font-bold leading-snug text-white'>
 					STAY UP TO DATE ABOUT OUR LATEST OFFERS
 				</span>
-				<NewsletterSubscription />
+				<NewsletterSubscription
+					email={email}
+					setEmail={setEmail}
+					handleSubmit={handleSubmit}
+					loading={loading}
+				/>
 			</div>
 
 			{/* Bottom Section */}
@@ -121,9 +166,7 @@ export default function Footer() {
 						</p>
 						<div className='flex gap-2 items-center'>
 							<SocialIcon href={"/"} icon={LiaFacebookF} />
-							<SocialIcon href={"/"} icon={LiaTwitter} />
 							<SocialIcon href={"/"} icon={LiaInstagram} />
-							<SocialIcon href={"/"} icon={LiaReddit} />
 						</div>
 					</div>
 
@@ -142,22 +185,20 @@ export default function Footer() {
 							React Us At
 						</span>
 						<ul className='text-sm text-gray-600 space-y-3'>
-							<li className="flex items-start gap-2"
-							
-							>
-								<FaLocationDot className="text-[16px] mt-2 text-gray-600" />
+							<li className='flex items-start gap-2'>
+								<FaLocationDot className='text-[16px] mt-2 text-gray-600' />
 								Block ED,Rajdanga Main Road, Near Acropolis
-								<br/>
+								<br />
 								Mall, Kasba, Kolkata - 700107, West Bengal
 							</li>
-							<li className="flex items-start gap-2">
-								<FaPhone className="text-[16px] text-gray-600" />
-								 +91 9163917808 
+							<li className='flex items-start gap-2'>
+								<FaPhone className='text-[16px] text-gray-600' />
+								+91 9163917808
 							</li>
-							<li className="flex items-start gap-2">
-								<MdOutlineMail className="text-[16px] mt-1  text-gray-600" />
+							<li className='flex items-start gap-2'>
+								<MdOutlineMail className='text-[16px] mt-1  text-gray-600' />
 								<Link href='mailto:support@xorar.com'>
-								support@xorar.com
+									support@xorar.com
 								</Link>
 							</li>
 						</ul>

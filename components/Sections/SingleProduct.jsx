@@ -20,18 +20,17 @@ function SingleProduct({
 	return (
 		<div className='w-auto block mx-auto' {...props}>
 			<Link href={link}>
-				{/* Product Image */}
 				<div
-					className='relative flex items-center justify-center max-w-[295px] 
+					className='relative flex items-center justify-center w-[250px] 
         h-64
-        max-h-[298px] bg-[#f0eeed] z-8 overflow-hidden rounded-2xl'
-				>
-					<img
-						src={img}
-						alt='tshirt image'
-						className='object-contain w-full h-full'
-					/>
-				</div>
+        max-h-[250px] bg-[#f0eeed] z-8 overflow-hidden rounded-2xl
+		bg-cover bg-center bg-no-repeat
+		
+		'
+					style={{
+						backgroundImage: `url(${img})`,
+					}}
+				></div>
 
 				{/* Product Title */}
 				<div className='mt-4'>
@@ -57,16 +56,19 @@ function SingleProduct({
 							{process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}
 							{price}
 						</span>
-						<span className='text-[20px] line-through text-gray-500 font-satoshi font-[700]'>
-							{process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}{" "}
-							{actualPrice}
-						</span>
 						{discount && (
-							<button className='flex items-center justify-center px-4 py-2 bg-red-100 rounded-full'>
-								<span className='text-red-600 text-xs font-medium'>
-									-{discount}%
+							<>
+								<span className='text-[20px] line-through text-gray-500 font-satoshi font-[700]'>
+									{process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}{" "}
+									{actualPrice}
 								</span>
-							</button>
+
+								<button className='flex items-center justify-center px-4 py-2 bg-red-100 rounded-full'>
+									<span className='text-red-600 text-xs font-medium'>
+										-{discount}%
+									</span>
+								</button>
+							</>
 						)}
 					</div>
 				)}

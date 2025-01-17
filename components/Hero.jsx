@@ -1,11 +1,16 @@
 import React from "react";
 import "@/styles/Hero.min.css";
 import Link from "next/link";
-
+import {HeroSection} from "@/data/products";
 function Hero() {
 	return (
-		<div className=' flex-row-ff items-center z-10'>
-			<div className='photoshoot-model max-w-2/4'>
+		<div className='flex-row-ff items-center z-10'>
+			<div
+				className='photoshoot-model max-w-2/4'
+				style={{
+					backgroundImage: `url(${HeroSection.image})`,
+				}}
+			>
 				<div className='vector' />
 				<div className='vector-8' />
 			</div>
@@ -25,20 +30,22 @@ function Hero() {
 				</Link>
 				<div className='frame-a'>
 					<div className='frame-b'>
-						<span className='plus-200'>200+</span>
-						<span className='regional-brands'>Regional Brands</span>
+						<span className='plus-200'>500+</span>
+						<span className='regional-brands'>
+							Orders Delivered
+						</span>
 					</div>
 					<div className='line' />
 					<div className='frame-c'>
-						<span className='plus-2000'>2,000+</span>
+						<span className='plus-2000'>95%</span>
 						<span className='high-quality-products'>
-							High-Quality Products
+							Positive Feedback
 						</span>
 					</div>
 					<div className='line-d' />
 					<div className='frame-e'>
-						<span className='plus-30000'>30,000+</span>
-						<span className='happy-customers'>Happy Customers</span>
+						<span className='plus-30000'>1,200+</span>
+						<span className='happy-customers'>Happy Shoppers</span>
 					</div>
 				</div>
 			</div>

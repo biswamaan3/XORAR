@@ -16,11 +16,15 @@
     border-radius: 40px;
   }
   .title-bento{
-    color: black;
+    color: white;
+    width: 160px;
+    background-color: rgba(17, 16, 16, 0.5);
+    padding: 10px 20px;
     font-family: var(--title-font);
     font-size: 28px;
-    margin: 20px 25px;
+    margin: 10px 15px;
     font-weight: 700;
+    border-radius: 10px;
   }
 
   .title-browse {

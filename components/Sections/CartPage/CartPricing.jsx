@@ -47,14 +47,7 @@ export default function CartPricing({
 					</div>
 				)}
 
-				<div className='flex justify-between items-center w-full'>
-					<span className='text-lg text-[rgba(0,0,0,0.6)]'>
-						Delivery Fee
-					</span>
-					<span className='text-lg font-bold text-black'>
-						{process.env.NEXT_PUBLIC_CURRENCY_SYMBOL} {subtotalValue > 0 ? deliveryFee : 0}
-					</span>
-				</div>
+				
 
 				<hr className='border-t border-gray-200 w-full' />
 

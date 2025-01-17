@@ -9,7 +9,7 @@ const CheckoutProvider = ({children}) => {
 	const {handleRemoveCart} = useAppProvider();
 	const [step, setStep] = useState(1);
 	const [totalValue, setTotalValue] = useState(0);
-	const [deliveryFee, setDeliveryFee] = useState(200);
+	const [deliveryFee, setDeliveryFee] = useState(0);
 	const [cartItems, setCartItems] = useState([]);
 	const [paymentType, setPaymentType] = useState(null);
 	const [orderStatus, setOrderStatus] = useState(null);
@@ -27,8 +27,16 @@ const CheckoutProvider = ({children}) => {
 	});
 	const [errors, setErrors] = useState({});
 	useEffect(() => {
-		const items = JSON.parse(localStorage.getItem("cart")) || [];
-		setCartItems(items);
+		const urlParams = new URLSearchParams(window.location.search);
+		const buynow = urlParams.get("buyNow");
+		if (buynow) {
+			const product = JSON.parse(localStorage.getItem("buyNow")) || [];
+			setCartItems(product);
+		} else {
+			const items = JSON.parse(localStorage.getItem("cart")) || [];
+			setCartItems(items);
+		}
+
 		const storedFormData = JSON.parse(localStorage.getItem("formData"));
 		if (storedFormData) {
 			setFormData(storedFormData);
@@ -39,13 +47,7 @@ const CheckoutProvider = ({children}) => {
 			(acc, item) => acc + item.price * item.quantity,
 			0
 		);
-		if (cartItems.length === 0) {
-			setDeliveryFee(0);
-			setTotalValue(0);
-			return;
-		}
-		setDeliveryFee(200);
-		total = total + deliveryFee;
+
 		setTotalValue(total);
 	}, [cartItems, deliveryFee]);
 

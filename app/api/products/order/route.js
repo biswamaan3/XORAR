@@ -19,6 +19,5 @@ export async function POST(request) {
   receipt: 'rcp1',
  };
  const order = await razorpay.orders.create(options);
- console.log(order);
  return NextResponse.json({ orderId: order.id }, { status: 200 });
 }
