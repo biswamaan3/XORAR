@@ -18,7 +18,7 @@
   .title-bento{
     color: white;
     width: 160px;
-    background-color: rgba(17, 16, 16, 0.5);
+    /* background-color: rgba(17, 16, 16, 0.5); */
     padding: 10px 20px;
     font-family: var(--title-font);
     font-size: 28px;
@@ -51,7 +51,7 @@
       overflow: visible;
     }
     .title-bento{
-      background-color: #b5b9bc58;
+      /* background-color: #b5b9bc58; */
       padding: 10px 5px;
       border-radius: 10px;
     }
