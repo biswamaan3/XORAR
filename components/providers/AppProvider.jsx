@@ -94,6 +94,9 @@ export const AppProvider = ({children}) => {
 				transition: Bounce,
 			});
 		} else {
+			if(data.dontRemove){
+				return;
+			}
 			cart.splice(index, 1);
 			updateCard("decrement");
 			toast.success("Removed from cart!", {

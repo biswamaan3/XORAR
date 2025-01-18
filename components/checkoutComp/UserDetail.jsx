@@ -7,7 +7,7 @@ const UserDetailsCard = () => {
 	const {formData, handleBack} = useCheckout();
 
 	return (
-		<div className='w-full mb-5 -mt-5 hide-scrollbar border-2 mx-auto p-6  text-wrap bg-white
+		<div className='w-full mt-5 hide-scrollbar border-2 mx-auto p-6  text-wrap bg-white
 		  rounded-lg flex items-start justify-between'>
 			{/* Left Section: User Details */}
 			<div className='flex-1 space-y-3'>

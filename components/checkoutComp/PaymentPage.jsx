@@ -18,7 +18,7 @@ const PaymentPage = () => {
 	return (
 		<div className=' w-full flex flex-col '>
 		
-			<UserDetailsCard />
+			
 			<h1 className='text-2xl font-bold mb-6'>Select Payment Method</h1>
 
 			<div className='w-full  space-y-4'>
@@ -84,6 +84,9 @@ const PaymentPage = () => {
 					Confirm Order
 				</button>
 			</div>
+
+
+			<UserDetailsCard />
 		</div>
 	);
 };

@@ -110,6 +110,7 @@ export default function ProductDescription({product}) {
 			design: selectedDesign,
 			addedOn: new Date().toISOString(),
 			thumbnail: product.thumbnail,
+			dontRemove: true,
 		});
 
 		const updatedCart = JSON.parse(localStorage.getItem("cart")) || [];
