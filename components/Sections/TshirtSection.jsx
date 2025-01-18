@@ -17,10 +17,10 @@ function TshirtSection({ tshirt }) {
   }, [tshirt]);
 
   return (
-    <div className="container w-full mx-auto mt-5 mb-10 md:mt-0 md:mb-0 md:my-10 px-4 md:px-12">
+    <div className="container w-full mx-auto mt-5 mb-5 md:mt-0 md:mb-0 md:my-10 px-4 md:px-12">
       <Heading2>T-SHIRTS</Heading2>
 
-      <div className="flex items-center justify-evenly flex-wrap md:gap-0 gap-10">
+      <div className="grid grid-cols-1 lg:grid-cols-4 items-center justify-evenly  md:gap-0">
         {loading
           ? [...Array(4)].map((_, index) => <SingleProductSkeleton key={index} />) // Show skeleton loaders
           : tshirt?.map((product, index) => (
@@ -32,6 +32,11 @@ function TshirtSection({ tshirt }) {
                 ratings="4.5"
                 link={`/shop/t-shirt/${product.slug}`}
                 data-aos="fade-up"
+                style={
+                  {
+                    marginTop: "20px"
+                  }
+                }
               />
             ))}
       </div>
