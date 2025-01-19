@@ -81,7 +81,7 @@ const RangeSlider = ({onChange, min = 0, max = 10000}) => {
 					<input
 						type='text'
 						maxLength='7'
-						value={`$${minPrice}`}
+						value={`₹${minPrice}`}
 						onChange={(e) =>
 							setMinPrice(validateMinPrice(e.target.value))
 						}
@@ -92,7 +92,7 @@ const RangeSlider = ({onChange, min = 0, max = 10000}) => {
 					<input
 						type='text'
 						maxLength='7'
-						value={`$${maxPrice}`}
+						value={`₹${maxPrice}`}
 						onChange={(e) =>
 							setMaxPrice(validateMaxPrice(e.target.value))
 						}
