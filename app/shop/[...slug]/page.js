@@ -7,7 +7,10 @@ import { notFound } from "next/navigation";
 
 async function getPost(slug) {
 	const res = await fetch(
-		`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/external/product/one?slug=${slug}`
+		`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/external/product/one?slug=${slug}`,
+		{
+			cache: "no-store"
+		}
 	);
 	const post = await res.json();
 	if (!post || !post.product) notFound(); 

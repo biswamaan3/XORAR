@@ -10,7 +10,10 @@ import React from "react";
 
 async function page() {
 	const data = await fetch(
-		`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/external/product/latest_t_h`
+		`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/external/product/latest_t_h`,
+		{
+			cache: "no-store",
+		}
 	);
 	const products = await data.json();
 	return (

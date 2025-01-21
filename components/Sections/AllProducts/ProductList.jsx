@@ -42,7 +42,7 @@ function ProductList({category}) {
 									key={item.id} // Use unique key like item.id
 									img={item.thumbnail}
 									discount={item?.discount_percent || null} // Use dynamic discount if available
-									actualPrice={item?.price || null} // Use dynamic actual price if available
+									actualPrice={item?.actual_price || null} // Use dynamic actual price if available
 									title={item?.title}
 									price={item?.discounted_price || "700"} // Use dynamic price if available
 									ratings={item?.averageRating} // Dynamically handle ratings
