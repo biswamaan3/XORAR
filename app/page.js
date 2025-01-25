@@ -21,7 +21,7 @@ async function page() {
 			<Hero />
 			<TshirtSection tshirt={products?.data?.tShirts} />
 			<WomenSection womenClothing={products?.data?.women} />
-			<HoodiesSection hoodies={products?.data?.hoodies} />
+			{/* <HoodiesSection hoodies={products?.data?.hoodies} /> */}
 			<BentoGrid />
 			<Testimonials />
 		</div>

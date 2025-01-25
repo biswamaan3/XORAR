@@ -13,9 +13,8 @@ function ProductList({category}) {
 	const toggleFilterModal = () => {
 		setIsFilterOpen(!isFilterOpen);
 	};
-	const {products, loading} = useProduct();
-	const productsPerPage = 12;
-	const totalPages = Math.ceil(products.length / productsPerPage);
+	const {products, loading, pagination} = useProduct();
+
 	return (
 		<div>
 			<div className='grid grid-cols-1 lg:grid-cols-9 gap-5 mt-10'>
@@ -52,7 +51,7 @@ function ProductList({category}) {
 						)}
 					</div>
 					{products.length > 0 && (
-						<Pagination totalPages={totalPages} />
+						<Pagination totalPages={pagination.totalPages} />
 					)}
 				</div>
 			</div>

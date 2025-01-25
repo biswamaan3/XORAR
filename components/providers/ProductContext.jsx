@@ -20,6 +20,8 @@ export const ProductsProvider = ({children, properties}) => {
 	const [sortBy, setSortBy] = useState("recently_added");
 	const [totalProducts, setTotalProducts] = useState(0);
 	const [totalProductsShown, setTotalProductsShown] = useState(0);
+	const [pagination, setPagination] = useState({});
+	const [currentPage, setCurrentPage] = useState(1);
 	const updateSortBy = (value) => {
 		setSortBy(value);
 	};
@@ -119,7 +121,7 @@ export const ProductsProvider = ({children, properties}) => {
 
 		setFilters((prev) => ({...prev, ...updatedFilters}));
 		applyFilterEffect(updatedFilters);
-	}, [properties]);
+	}, [properties, currentPage, params]);
 
 	async function applyFilterEffect(data) {
 		setLoading(true);
@@ -131,6 +133,7 @@ export const ProductsProvider = ({children, properties}) => {
 			size: data.size,
 			price_min: data.priceRange.min,
 			price_max: data.priceRange.max,
+			page: currentPage,
 		};
 
 		try {
@@ -147,7 +150,8 @@ export const ProductsProvider = ({children, properties}) => {
 			}
 
 			const data = await response.json();
-
+			console.log(data.data)
+			setPagination(data.data.pagination);
 			setProducts(data.data.products || []);
 		} catch (error) {
 			console.error("Error fetching products:", error);
@@ -206,7 +210,9 @@ export const ProductsProvider = ({children, properties}) => {
 				sortBy,
 				updateSortBy,
 				totalProducts,
-				totalProductsShown
+				pagination,
+				totalProductsShown,
+				currentPage, setCurrentPage
 			}}
 		>
 			{children}

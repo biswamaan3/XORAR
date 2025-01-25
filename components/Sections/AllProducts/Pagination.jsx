@@ -1,5 +1,6 @@
 "use client"; // Ensures this component is client-side rendered
 
+import { useProduct } from "@/components/providers/ProductContext";
 import React, {useState} from "react";
 
 // Custom hook for detecting screen width (media query)
@@ -22,7 +23,7 @@ const useMediaQuery = (query) => {
 };
 
 export default function Pagination({totalPages = 10}) {
-	const [currentPage, setCurrentPage] = useState(1);
+	const {currentPage, setCurrentPage} = useProduct();
 	const isDesktop = useMediaQuery("(min-width: 1024px)");
 
 	const handlePageClick = (page) => {

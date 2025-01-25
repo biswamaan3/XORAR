@@ -29,12 +29,12 @@ export default function Dropdown() {
 					>
 						T-shirts
 					</Link>
-					<Link
+					{/* <Link
 						href='/product/all?category=hoodies'
 						className='block px-4 py-2 text-black text-sm hover:bg-gray-100'
 					>
 						Hoodies
-					</Link>
+					</Link> */}
 					<Link
 						href='/product/all?category=women'
 						className='block px-4 py-2 text-black text-sm hover:bg-gray-100'
