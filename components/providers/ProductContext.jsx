@@ -121,7 +121,12 @@ export const ProductsProvider = ({children, properties}) => {
 
 		setFilters((prev) => ({...prev, ...updatedFilters}));
 		applyFilterEffect(updatedFilters);
-	}, [properties, currentPage, params]);
+		
+	}, [properties]);
+
+	useEffect(()=>{
+		applyFilters({page: currentPage});
+	}, [currentPage])
 
 	async function applyFilterEffect(data) {
 		setLoading(true);
@@ -135,14 +140,14 @@ export const ProductsProvider = ({children, properties}) => {
 			price_max: data.priceRange.max,
 			page: currentPage,
 		};
-
+		// console.log(filterPayload);
 		try {
 			const response = await fetch(`/api/products/filter`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
 				},
-				body: JSON.stringify(filterPayload), // Ensure the body is stringified
+				body: JSON.stringify(filterPayload),
 			});
 
 			if (!response.ok) {
@@ -150,7 +155,6 @@ export const ProductsProvider = ({children, properties}) => {
 			}
 
 			const data = await response.json();
-			console.log(data.data)
 			setPagination(data.data.pagination);
 			setProducts(data.data.products || []);
 		} catch (error) {
@@ -160,7 +164,7 @@ export const ProductsProvider = ({children, properties}) => {
 		setLoading(false);
 	}
 
-	async function applyFilters() {
+	async function applyFilters({page = 1}) {
 		setLoading(true);
 
 		const filterPayload = {
@@ -171,8 +175,9 @@ export const ProductsProvider = ({children, properties}) => {
 			price_min: filters.priceRange.min,
 			price_max: filters.priceRange.max,
 			sort_by: sortBy,
+			page: page,
 		};
-
+		// console.log(filterPayload);
 		try {
 			const response = await fetch(`/api/products/filter`, {
 				method: "POST",
@@ -188,6 +193,7 @@ export const ProductsProvider = ({children, properties}) => {
 
 			const data = await response.json();
 			setTotalProducts(data.data.totalProducts);
+			setPagination(data.data.pagination);
 			setTotalProductsShown((prev) => prev + data?.data?.products?.length);
 			setProducts(data.data.products || []);
 		} catch (error) {
