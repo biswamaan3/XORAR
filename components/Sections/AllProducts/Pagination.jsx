@@ -23,12 +23,17 @@ const useMediaQuery = (query) => {
 };
 
 export default function Pagination({totalPages = 10}) {
-	const {currentPage, setCurrentPage} = useProduct();
+	const {currentPage, setCurrentPage,handlePageback} = useProduct();
 	const isDesktop = useMediaQuery("(min-width: 1024px)");
 
 	const handlePageClick = (page) => {
+		if(page === 1 || page === "1"){
+			setCurrentPage(1);
+			handlePageback();
+		}
 		setCurrentPage(page);
 	};
+	
 
 	const generatePages = () => {
 		const pages = [];

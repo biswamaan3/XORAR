@@ -7,7 +7,7 @@ import Pagination from "./Pagination";
 import {useProduct} from "@/components/providers/ProductContext";
 import SingleProductSkeleton from "@/components/loaders/SingleProductSkeleton";
 
-function ProductList({category}) {
+function ProductList() {
 	const [isFilterOpen, setIsFilterOpen] = useState(false);
 
 	const toggleFilterModal = () => {

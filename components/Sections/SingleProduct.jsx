@@ -19,7 +19,7 @@ function SingleProduct({
 }) {
 	return (
 		<div className='w-auto block mx-auto' {...props}>
-			<Link href={link}>
+			<a href={link}>
 				<div
 					className='relative flex items-center justify-center w-[250px] 
         h-64
@@ -72,7 +72,7 @@ function SingleProduct({
 						)}
 					</div>
 				)}
-			</Link>
+			</a>
 
 			{/* MoveToBag button */}
 			{moveToCart && (
