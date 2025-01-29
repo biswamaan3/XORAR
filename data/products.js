@@ -62,4 +62,10 @@ const testimonials = [
 	},
 ];
 
-export {HeroSection, BentoCardData, testimonials};
+const TextBanner = {
+	"text": "Free Shipping on Orders Over $50",
+	"linkText": "Shop Now",
+	visible: true,
+}
+
+export {HeroSection, BentoCardData, testimonials,TextBanner};

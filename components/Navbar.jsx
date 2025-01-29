@@ -5,10 +5,14 @@ import "@/styles/Navbar.css";
 import ShopDropDown from "./ShopDropDown";
 import NavbarButtons from "./NavbarButtons";
 import SearchComp from "./search/SearchComp";
+import HeaderBanner from "./misc/HeaderBanner";
+import { TextBanner } from "@/data/products";
 
 export default function Navbar() {
 
 	return (
+		<>
+		{TextBanner.visible && <HeaderBanner/>}
 		<div className='main-container !overflow-visible'>
 			<div className='w-[90%] mx-auto flex items-center justify-between md:gap-10 gap-3'>
 				<Link href={"/"} className='flex items-center gap-1'>
@@ -30,5 +34,6 @@ export default function Navbar() {
 				<NavbarButtons />
 			</div>
 		</div>
+		</>
 	);
 }
