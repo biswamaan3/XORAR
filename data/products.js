@@ -63,7 +63,7 @@ const testimonials = [
 ];
 
 const TextBanner = {
-	"text": "Free Shipping on Orders Over $50",
+	"text": "All india free delivery",
 	"linkText": "Shop Now",
 	visible: true,
 }
