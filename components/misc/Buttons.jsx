@@ -114,13 +114,13 @@ export const BigStarRating = ({ratings}) => {
 	const emptyStars = 5 - fullStars - halfStars;
 
 	return (
-		<div className=' flex items-center gap-2 z-10'>
+		<div className=' flex items-center gap-1 z-10'>
 			{Array.from({length: fullStars}).map((_, index) => (
 				<img
 					key={`full-${index}`}
 					src='/assets/svg/Star_full.svg'
 					alt='star'
-					className='w-[25px] h-[25px] mr-6'
+					className='w-[25px] h-[25px] mr-2'
 				/>
 			))}
 

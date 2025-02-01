@@ -22,19 +22,19 @@ export async function generateMetadata({params}) {
 	const slug = (await params).slug[(await params).slug.length - 1];
 	const post = await getPost(slug);
 	return {
-		title: post.product.title, // Use the product title for metadata
+		title: post.product.title, 
 	};
 }
 
 async function page({params}) {
-	const slug = (await params).slug[params.slug.length - 1];
+	const slug = (await params).slug[(await params).slug.length - 1];
 	const data = await getPost(slug);
 	return (
 		<div className='container w-[90%] mx-auto'>
 			<Breadcrumb />
 			<Suspense fallback={<ProductSkeleton />}>
 				<ProductComp product={data.product} />
-				<ProductReviews ratings={data.ratings} />
+				<ProductReviews reviews={data.product.reviews} />
 				<RecommendedProducts
 					recommendation={data.recommendedProducts}
 				/>

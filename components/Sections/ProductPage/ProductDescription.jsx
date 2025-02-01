@@ -173,8 +173,8 @@ export default function ProductDescription({product}) {
 
 			{/* Ratings */}
 			{product.averageRating && product.averageRating > 0 && (
-				<div className='flex items-center gap-4 mt-4 z-[7]'>
-					<div className='flex items-center gap-2'>
+				<div className='flex items-center gap-3 mt-4 z-[7]'>
+					<div className='flex items-center gap-1'>
 						<BigStarRating ratings={product.averageRating} />
 					</div>
 					<div className='text-[16px] font-normal leading-[21.6px]'>

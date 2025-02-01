@@ -5,6 +5,7 @@ export const TestimonialCard = ({
 	className = "",
 	text,
 	stars,
+	date="February 1, 2025",
 	withDate,
 	withMenu,
 	ratings,
@@ -34,7 +35,7 @@ export const TestimonialCard = ({
         mt-5
         z-[15]"
 			>
-				Posted on August 14, 2023
+				Posted on {date}
 			</span>
 		)}
 	</div>

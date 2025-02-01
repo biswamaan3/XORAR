@@ -18,10 +18,14 @@ function HeaderBanner() {
 			>
 				<ul className='block animate-text-slide-2 text-left leading-tight [&_li]:block'>
 					<li className=''>
-						All india free delivery | {" "}Shop Now ↪ 
+						{TextBanner.text_1} | {TextBanner.linkText} ↪
 					</li>
-					<li>Buy Two get 8% Discount | {" "}Shop Now ↪  </li>
-					<li aria-hidden='true'>All india free delivery | {" "}Shop Now ↪ </li>
+					<li>
+						{TextBanner.text_2} | {TextBanner.linkText} ↪
+					</li>
+					<li aria-hidden='true'>
+						{TextBanner.text_1} | {TextBanner.linkText} ↪
+					</li>
 				</ul>
 			</Link>
 		</div>

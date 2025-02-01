@@ -63,7 +63,8 @@ const testimonials = [
 ];
 
 const TextBanner = {
-	"text": "All india free delivery",
+	"text_1": "All india free delivery",
+	"text_2": "COD available",
 	"linkText": "Shop Now",
 	visible: true,
 }
